@@ -1,0 +1,76 @@
+<html>
+    <head>
+      <script>
+
+var num = 10;
+var arr = [8,8,9,10];
+
+function zeroNegativity(){
+    let neg = true;
+    for (i=0; i<arr.length; i++){
+        if (arr[i] < 0){
+            return false;
+        }
+    }
+    return true;
+}
+ 
+zeroNegativity(arr);
+    
+
+    
+function is_even(num){
+    if(num % 2 === 0){
+        return true;
+        }
+        return false;
+    }
+    
+is_even(num);
+
+function how_many_even(arr){
+    var count = 0;
+    for(var i =0; i < arr.length; i++){
+        var huh = is_even(arr[i]);
+        if (huh ===true){
+            count++;
+        }
+
+    }
+    return count;
+}
+
+function create_dummy_array(){
+    var arr =[];
+    for(var i = 0; i < num; i ++){
+        x = Math.floor(Math.random() * 9);
+        arr[i] = x;
+        arr.push[x];
+    }
+    return arr;
+}
+num = 10;
+create_dummy_array(num);
+
+
+function random_choice(){
+    var random= arr[Math.floor(Math.random() * arr.length)];
+    return random;
+}
+
+var arr = [8,8,9,10];
+random_choice(arr)
+
+//CALLInG ON FUNCTION EXAMPLE FOR ME//
+function yell(string){
+            var result = string.toUpperCase();
+            return result;
+          }
+          yell("Can you tell I'm Shouting");
+
+
+        </script>  
+    </head>
+    <body> 
+    </body>
+    </html>
