@@ -1,0 +1,64 @@
+<html>
+    <head>
+      <script>
+
+
+
+function magic_multiply(x, y){
+    
+    var mult_reg_int = x * y;
+    if (x === 0 & y === 0){
+        var zero = "x and y are "+ x + ", " + y + ". Therefore, All inputs are 0." ;
+        return zero;
+            
+    } else if (x.constructor === Array){
+              for (i=0;i<x.length; i++){
+                x[i] = x[i]*y;
+        }
+        return x;
+    }
+    else if(typeof x === "number" && typeof y === "string"){
+        let type = "Error: Can not multiply by string";
+        return type;
+    }
+    else if(typeof x === "string" && typeof y === "number"){
+      for(var i = 0; i < y; i++){
+        console.log(x);
+      }        
+    }
+    else {
+        return mult_reg_int;
+    
+        }
+    }
+    
+
+let test1 = magic_multiply(5, 2);
+console.log(test1);
+
+let test2 = magic_multiply(0, 0);
+console.log(test2);
+
+let test3 = magic_multiply([1, 2, 3], 2);
+console.log(test3);
+
+let test4 = magic_multiply(7, "three");
+console.log(test4);
+
+let test5 = magic_multiply("Brendo", 4);
+console.log(test5);
+
+
+//CALLInG ON FUNCTION EXAMPLE FOR ME//
+function yell(string){
+            var result = string.toUpperCase();
+            return result;
+          }
+          yell("Can you tell I'm Shouting");
+
+
+        </script>  
+    </head>
+    <body> 
+    </body>
+    </html>
