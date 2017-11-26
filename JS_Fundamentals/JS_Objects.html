@@ -1,0 +1,53 @@
+<html>
+    <body>
+        <h1>Students</h1>
+        <ul id="main">
+        </ul> 
+        <div id ="bigger">
+
+        </div>
+    <script>
+
+
+    let students = [
+        {name: 'Remy', cohort: 'Jan'},
+        {name: 'Genevieve', cohort: 'March'},
+        {name: 'Chuck', cohort: 'Jan'},
+        {name: 'Osmund', cohort: 'June'},
+        {name: 'Nikki', cohort: 'June'},
+        {name: 'Boris', cohort: 'June'}
+    ];
+
+    for (var i = 0; i < students.length; i++){
+        for (key in students[i]){
+            console.log(key + ': ' + students[i][key])
+        }
+    }
+
+    let users = {
+        employees: [
+            {'first_name':  'Miguel', 'last_name' : 'Jones'},
+            {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+            {'first_name' : 'Nora', 'last_name' : 'Lu'},
+            {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+        ],
+        managers: [
+           {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+           {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+            ]
+        };
+    
+         for (var group in users) {
+         console.log("~" + group.toUpperCase() + "~")
+         for (var i = 0; i < users[group].length; i++) {
+          var num = i + 1
+          var length = users[group][i].first_name.length + users[group][i].last_name.length
+           var fullname = users[group][i].first_name + users[group].last_name;
+           console.log(num + " - "+users[group][i].first_name + " " + users[group][i].last_name + " - " + length)
+         }
+       }
+    
+    </script>   
+    </body>
+    </html>
+    
