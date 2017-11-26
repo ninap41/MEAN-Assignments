@@ -3,6 +3,9 @@
         <h1>Students</h1>
         <ul id="main">
         </ul> 
+        <div id ="bigger">
+
+        </div>
     <script>
          function appendList(array, id){
             for(var i =0; i <array.length; i++){
@@ -11,9 +14,23 @@
               document.getElementById("main").appendChild(new_student);
             }
         };
+       
+        function superAppend(array, element, id){
+        for(var i =0; i <array.length; i++){
+                let bigstudent = document.createElement(element);
+                bigstudent.innerHTML = array[i];
+                document.getElementById(id).appendChild(bigstudent);
+            }
+        };
+
         let students = ["Jeff", "Jenny", "Javier", "Joslyn", "Joe", "Jane", "Django"];
         let target_id = "main";
+        let bigger = "bigger"
+        let element1 = "h1"
+       
+        
         appendList(students, target_id);
+        superAppend(students, element1, bigger);
     </script>   
     </body>
     </html>
