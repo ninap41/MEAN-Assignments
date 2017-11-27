@@ -38,12 +38,12 @@
           
       Ninja.prototype.punch = function(Ninja){
             Ninja.health -= 5;
-            console.log(Ninja.name, " punched ", this.name, "! " + Ninja.name + " lost 15 HP!");
+            console.log(this.name, " punched ", Ninja.name, "! " + Ninja.name + " lost 15 HP!");
                 }
 
      Ninja.prototype.kick = function(Ninja){
             Ninja.health -= 15;
-            console.log(Ninja.name, " kicked ", this.name, "! " + Ninja.name + " lost 15 HP!");
+            console.log(this.name, " kicked ", Ninja.name, "! " + Ninja.name + " lost 15 HP!");
                 }
       
       
