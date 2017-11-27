@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Javascript Demo</title>
+        <style>
+      
+        </style>
+    </head>
+    <body>
+    <script>
+
+    function Ninja(name){ //constructor
+        var self = this;
+        this.name = name;
+        this.health = 100;
+        self.stealth = "Sneaky"
+        self.speed = 3 
+        self.strength = 3;
+
+   }
+    Ninja.prototype.sayName = function(){
+        console.log("My ninja name is", this.name);
+        return this;
+        }
+
+
+    Ninja.prototype.showStats = function(){
+        console.log("Name: " + this.name)
+        console.log("Health:" + this.health + " HP","\n" +"Speed: " + this.speed, "\n" +"Steath: " +this.stealth, "\n" +"Strength: " + this.strength);
+        return this;
+        }
+        
+      Ninja.prototype.drinkSake = function(name){
+          this.health += 10;
+          this.speed -=1
+          console.log(this.name + " just drank sake, her health increased by ten HP!")
+          return this;
+          }
+          
+      Ninja.prototype.punch = function(Ninja){
+            Ninja.health -= 5;
+            console.log(Ninja.name, " punched ", this.name, "! " + Ninja.name + " lost 15 HP!");
+                }
+
+     Ninja.prototype.kick = function(Ninja){
+            Ninja.health -= 15;
+            console.log(Ninja.name, " kicked ", this.name, "! " + Ninja.name + " lost 15 HP!");
+                }
+      
+      
+          var Nina  = new Ninja("Nina");
+          var Enemy  = new Ninja("Enemy");
+
+        Nina.kick(Enemy);
+        console.log("------")
+        Enemy.punch(Nina);
+        console.log("------")
+        Nina.drinkSake();
+        console.log("------")
+        Enemy.showStats();
+        console.log("------")
+        Nina.showStats()
+                
+    </script>
+    </body>
+    </html>
