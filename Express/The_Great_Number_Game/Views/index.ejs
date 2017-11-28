@@ -5,42 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css" />    
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Counter</title>
+    <title>The Great Number Game</title>
 </head>
 <body>
     
     <div style="color:blue;padding:20px;border: 1px solid blue; margin-left: 20%; width: 30rem; text-align: center;"id="Visited"> 
             <h2 style="color:black">The Great Number Game</h2>
     <h3>
-           
-       
         <% if (count > 0) { %>
-                        <!-- <%= count + " "  %>is The Number -->
-
         <% } %>
 
- 
+        <% if (string ==="You Guessed It!") { %>
+            <div style="color:green;font-size:2rem;">"<%= string %>, The Number Was <%= count %>"</div>
+            <form action='/reset' method='post'>
+                <input type='submit' value='reset'>
+            </form>
+        <% } %>
+        <% if (string != "You Guessed It!") { %>
+            <div style="color:red;"><%= string %></div><BR>
+        <% } %>
+  
+      
 
-<% if (string ==="You Guessed It!") { %>
-    <div style="color:green;"><%= string %></div>
-    <form action='/reset' method='post'>
-        <input type='submit' value='reset'>
-    </form>
-<% } %>
-<% if (string != "You Guessed It!") { %>
-    <div style="color:red; "><%= string %></div><BR>
-<% } %>
     </h3>
   
-    
+    <% if (game_state != true) { %>
     <form action='/guess' method='post'>
         <span> Guess Between 1-100</span><BR><BR>
         <input class="align" type="text" name ="guess" value=''><BR><BR>
             
         <input type='submit' value='Guess'>
     </form>
+    <% } %>
+ 
    
-    <% } %> 
+
         </div>
    
 </body>

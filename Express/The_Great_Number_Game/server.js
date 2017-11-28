@@ -26,6 +26,7 @@ app.get('/', function(req, res) {
     if(!req.session.number){
         req.session.number = Math.floor(Math.random()* 100);
         req.session.string;
+        req.session.game_state = false;
         counter= req.session.number 
     }
     else {
@@ -37,7 +38,7 @@ app.get('/', function(req, res) {
     let stringy = ""
 
  
-    res.render("index", {count: count, string: stringy});
+    res.render("index", {count: count, string: stringy, game_state:req.session.game_state});
 })
 
 
@@ -49,18 +50,18 @@ app.post('/reset', function(req,res){
     res.redirect('/');
 })
 
-
 app.post('/guess', function(req, res) {
     let stringy_update;
    
     console.log("GUESS", req.body);
     if(typeof req.body.guess === "string")
     {
+        
         stringy_update="Erm, Try entering a number??";
     }
     if(req.body.guess == req.session.number){
+        req.session.game_state = true;
         stringy_update="You Guessed It!";
-        
     }
     if(req.body.guess < req.session.number){
         stringy_update="Try Higher!";
@@ -70,8 +71,10 @@ app.post('/guess', function(req, res) {
     }   
 
     req.session.string = stringy_update;
+    game_states = req.session.game_state;
     
-    res.render('index', {count: req.session.number, string : req.session.string });
+    
+    res.render('index', {count: req.session.number, game_state: game_states, string : req.session.string });
     
 })
 
