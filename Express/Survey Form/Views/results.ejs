@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Form</title>
+</head>
+<body>
+    
+   
+<div id="contain">
+    <fieldset>
+        <legend class="legendarydojo">Dojo Survey</legend>
+        
+           
+                
+        <%= "Thanks " + result.name + " for completing your survey!" %>
+        <ul>
+              
+                <li> Name: <%=result.name %>  </li>
+                <li> Language: <%=result.language %>  </li>
+                <li> Location: <%=result.location %>  </li>
+                <% if (result.comment != "") { %>
+                <li> Comment: <%=result.comment %>  </li>
+                <%} %>
+                <% if (result.comment === "") { %>
+                    <li> Comment: <p style="color: red;">No comment</p> </li>
+                <%} %>
+                
+              
+        </ul>
+
+              
+
+                   
+     
+
+
+           
+    
+         
+        <a href="/"><button>Go Back</button></a>
+        </form>
+    </fieldset>
+    </div>
+</body>
+</html>

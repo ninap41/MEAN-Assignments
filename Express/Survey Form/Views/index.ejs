@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Form</title>
+</head>
+<body>
+    
+   
+<div id="contain">
+    <fieldset>
+        <legend class="legendarydojo">Dojo Survey</legend>
+        <form class="align" action="/results" method="post">
+       <p class="firstname">First Name: </p> <input class="align" type="text" name ="name" value=''><br>
+       <p class= "line_em"> Dojo Location:</p>
+        <select name="location" class= "line_em" > 
+            <option value=""></option name='chosen'>
+            <option value="Chicago">Chicago</option name='chosen'>
+            <option value="Dallas">Dallas</option name='chosen'>
+            <option value="Seattle">Seattle</option name='chosen'>
+            <option value="Mars">Mars</option name='chosen'>   
+        </select> 
+        <p class= "line_em"> Favorite Language:</p name='chosen'>
+        <select name ="language" class= "line_em">
+             <option value=""></option name='chosen'>
+            <option value="Python">Python</option name='chosen'>
+            <option value="Javascript">Javascript</option name='chosen'>
+            <option value="Html/CSS">Html/Css</option name='chosen'>
+            <option value="Java">Java</option name='chosen'>
+        </select>
+        <form>
+        <p>  Comment (optional)</p>
+       <textarea class="align" type="text" name="comment" id="comment_input" value="Must be less than 120 characters"></textarea><br>
+        <input class="align" type='submit' value='submit' id="narrow">
+        </form>
+    </fieldset>
+    </div>
+</body>
+</html>
