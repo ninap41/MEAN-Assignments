@@ -40,7 +40,9 @@
               
         </ul>
    
-        <a href="/"><button>Go Back</button></a>
+        
+        <a href="/back/<%=result.id%>"><button>Go Back</button></a>
+        <a href="/clear"><button>clear session</button></a>
    
     </fieldset>
     </div>
@@ -52,16 +54,16 @@
             <% if (result.name == ""  || result.location == ""  || result.language == "" ) { %>
         <%= "It looks like you missed a few fields tho..." %>
         <%} %>
+        
             <% for(var thing in result) { %>  
                 <ul>  
-               <li>  <%= thing %>:  <%=result[thing] %> 
+               <li>  <%= thing %>:  <%=result[thing] %>
                 <% if (thing === "comment" && result[thing] === "") { %>
                     <p style="color: red;">No comment</p> 
                <%} %>
-             </li>
+              </li>
                   </ul>
             <% } %>
-            
         </fieldset>
     </div>
 </body>

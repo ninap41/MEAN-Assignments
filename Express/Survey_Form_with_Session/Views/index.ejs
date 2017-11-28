@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Form</title>
+    
+    <style>
+        #contain{width: 30rem;height: 30rem;margin-left: 30%;}
+        legend{font-size: 3rem;margin-left: 5rem;}
+        form{margin: 1rem;padding-left: 5rem;}
+    </style>
+</head>
+
+
+<body>
+    
+   
+<div id="contain">
+    <fieldset>
+        <legend class="legendarydojo">Dojo Survey</legend>
+        <form class="align" action="/results" method="post">
+      <span> First Name: <input class="align" type="text" name ="name" value=''></span><BR><BR>
+      <span> Dojo Location:
+        <select name="location" class= "line_em" > 
+            <option value=""></option name='chosen'>
+            <option value="Chicago">Chicago</option name='chosen'>
+            <option value="Dallas">Dallas</option name='chosen'>
+            <option value="Seattle">Seattle</option name='chosen'>
+            <option value="Mars">Mars</option name='chosen'>   
+        </select> </span><BR><BR>
+        <span>Favorite Language:
+        <select name ="language" class= "line_em">
+             <option value=""></option name='chosen'>
+            <option value="Python">Python</option name='chosen'>
+            <option value="Javascript">Javascript</option name='chosen'>
+            <option value="Html/CSS">Html/Css</option name='chosen'>
+            <option value="Java">Java</option name='chosen'>
+        </select></span><BR><BR>
+       
+        <span>Comment (optional)
+       <textarea class="align" type="text" name="comment" id="comment_input" value="Must be less than 120 characters"></textarea></span><br><BR>
+        <input class="align" type='submit' value='submit' id="narrow">
+        </form>
+      
+    </fieldset>
+    </div>
+</body>
+</html>
