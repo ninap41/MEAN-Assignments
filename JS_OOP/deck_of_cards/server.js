@@ -21,18 +21,18 @@ class Deck{
         }
         return this;
     }
-    shuffle(){ //THE OVER9000 SHUFFLE with a tempppp :)
-        for (var i = 0; i < 9001; i++)
-        {
-            var x = Math.floor((Math.random() * this.deck.length));
-            var z = Math.floor((Math.random() * this.deck.length));
-            var tmp = this.deck[x];
-            this.deck[x] = this.deck[z];
-            this.deck[z] = tmp;
-        }
-        return this;
-    }
-    //CRAZY WAY TO SHUFFLE?????
+    // shuffle(){ //THE OVER9000 SHUFFLE with a tempppp :)
+    //     for (var i = 0; i < 9001; i++)
+    //     {
+    //         var x = Math.floor((Math.random() * this.deck.length));
+    //         var z = Math.floor((Math.random() * this.deck.length));
+    //         var tmp = this.deck[x];
+    //         this.deck[x] = this.deck[z];
+    //         this.deck[z] = tmp;
+    //     }
+    //     return this;
+    // }
+    //CRAZY WAY TO SHUFFLE without being redundant
     shuffle2() {
         for(var j, x, i = this.deck.length; i; j = parseInt(Math.random() * i), x = this.deck[--i], this.deck[i] = this.deck[j], this.deck[j] = x);
         return this.deck
@@ -75,22 +75,20 @@ class Player {
     constructor(name) {
         this.name = name;
         this.hand = [];
-        var hand_status= null;
-        var wins = null;
-        var losses = null;
+        this.hand_value = null;
     }
     draw_full_Hand(deck) {
-        for(var i= 0; i <8; i++){
+        for(var i= 0; i <3; i++){
             this.hand.push(deck.deal() + "\n");
         }
-        console.log(this.name + " has drawn (7) of this hand:" + "\n")
+        console.log(this.name + " has drawn (3) of this hand:" + "\n")
         return this.hand;
     }
  
 
     draw(deck) {
-        if(this.hand.length > 6){
-            return this.name + " has attempted to draw a card!" + "\n" + " ....But they have too many cards in their hand!"; 
+        if(this.hand.length > 2){
+            return this.name + " has attempted to draw a card!" + "\n" + " ....But they have too many cards in their hand!" + "(" + this.hand.length + ")"; 
 
         }
         else{
@@ -104,12 +102,15 @@ class Player {
             var cardIndex = Math.floor(Math.random() * this.hand.length)
             var discarded = this.hand.pop(this.hand[cardIndex])
             console.log("Hey, " + this.name + " has discarded " + discarded);
-        }
+      
         if(this.hand.length === 1){
             console.log("Hey, " + this.name + ". That's Your Last Card! Don't Discard it yet!");
         }
-            return "After discarding, her hand is now.." + "\n" +  this.hand;
+        return "After discarding, her hand is now.." + "\n" +  this.hand + " she has " + this.hand.length + " card(s) left." + "\n";
     }
+        return "She has no cards to discard!" + "\n";
+    }
+   
 
     check_hand(){
        //one_pair
@@ -120,6 +121,22 @@ class Player {
         
         // var tmp = tmp[`${i}`];
     }
+
+
+    
+
+
+//blackjack WIP
+    // did_I_win(){
+    //     var sum = this.hand.sumArray(this.hand)
+    //     if(sum >21){
+    //         return "You Lose";
+    //     }
+    //     else {
+    //         return "You Win";
+    //     }
+
+    // }
    
 }
 
@@ -143,6 +160,6 @@ console.log( "\n" + Nina.discard(deck));
 console.log( "\n" + Nina.discard(deck));
 console.log( "\n" + Nina.discard(deck));
 console.log( "\n" + Nina.draw(deck));
-console.log( "\n" + Nina.check_hand());
+console.log( "\n" + Nina.did_I_win());
 
 
