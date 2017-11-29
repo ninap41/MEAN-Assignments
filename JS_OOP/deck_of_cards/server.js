@@ -32,6 +32,11 @@ class Deck{
         }
         return this;
     }
+    //CRAZY WAY TO SHUFFLE?????
+    shuffle2() {
+        for(var j, x, i = this.deck.length; i; j = parseInt(Math.random() * i), x = this.deck[--i], this.deck[i] = this.deck[j], this.deck[j] = x);
+        return this.deck
+    }
 
     deal(){
         this.deck.pop();
@@ -70,6 +75,9 @@ class Player {
     constructor(name) {
         this.name = name;
         this.hand = [];
+        var hand_status= null;
+        var wins = null;
+        var losses = null;
     }
     draw_full_Hand(deck) {
         for(var i= 0; i <8; i++){
@@ -102,16 +110,30 @@ class Player {
         }
             return "After discarding, her hand is now.." + "\n" +  this.hand;
     }
+
+    check_hand(){
+       //one_pair
+        // for(var i = 0; i < this.hand.length; i++){
+        //     this.hand.pop(this.hand[0])
+            return this.hand[0];
+
+        
+        // var tmp = tmp[`${i}`];
+    }
+   
 }
+
+
 
 //__________________PLAYER________________________________
 
 
 console.log("Welcome to Deck of Cards" + "\n" +"~~~~~~~~~~~~~~~~~~~~~~~");
 let Nina = new Player("Nina");
+let Opposing_Player = new Player("Nina")
 const deck = new Deck();
 deck.show_cards_reset()
-console.log(deck.show_cards_reset().shuffle());
+console.log(deck.show_cards_reset().shuffle2());
 console.log("\n"+ "...We Have Shuffled the cards.")
 
 console.log( Nina.draw_full_Hand(deck) + "\n");
@@ -121,5 +143,6 @@ console.log( "\n" + Nina.discard(deck));
 console.log( "\n" + Nina.discard(deck));
 console.log( "\n" + Nina.discard(deck));
 console.log( "\n" + Nina.draw(deck));
+console.log( "\n" + Nina.check_hand());
 
 
