@@ -1,0 +1,87 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~create
+use my_first_db
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~create table or collection
+db.createCollection('students')
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~create students
+db.students.insert({name: "Nina", home_state: "Illinois", lucky_number:17, birthday: {month:04, day:17, year:1992}})
+db.students.insert({name: "Evan", home_state: "Illinois", lucky_number: 14, birthday: {month: 01, day: 04, year: 1992}})
+db.students.insert({name: "Tina", home_state: "Kansas", lucky_number: 5, birthday: {month: 10, day: 23, year: 1992}})
+db.students.insert({name: "Ryan", home_state: "Nevada", lucky_number: 27, birthday: {month: 09, day: 18, year: 1989}})
+db.students.insert({name: "Rebecca", home_state: "Illinois", lucky_number: 666, birthday: {month: 10, day: 25, year: 1991}})
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~retrieve kansas students
+db.students.find({$or: [{home_state:"Kansas"})
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~Get all students whose lucky number is:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~greater than 15~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+db.students.find({lucky_number: {$gt: 15}}).pretty()
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~less than or equal to 10~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+db.students.find({lucky_number: {$lte: 10}}).pretty()
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~between 1 and 9 (inclusive)~~~~~~~~~~~~~~~~~~~~~~~~~~  
+db.students.find({$and:[{lucky_number:{$lte:9}}, {lucky_number:{$gte:1}}]}).pretty()
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~Add a field to each student collection called 'interests' that is an ARRAY.  It should contain the following entries: 'coding', 'brunch', 'MongoDB'. Do this in ONE operation.~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+db.students.update({},{$set: {"interests":['coding', 'brunch', 'MongoDB']}},{multi:true})
+
+RESULT
+	"_id" : ObjectId("5a1f09750152dc030593348d"),
+	"name" : "Tina",
+	"home_state" : "Kansas",
+	"lucky_number" : 5,
+	"birthday" : {
+		"month" : 10,
+		"day" : 23,
+		"year" : 1992
+	},
+	"interests" : [
+		"coding",
+		"brunch",
+		"MongoDB"
+	]
+}
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~Add some unique interests for each particular students into each of their interest arrays.~~~~~~~~~~~~~~~~~~~~~~~~~~   
+db.students.update({name: "Nina"},{$push: {interests:'guitar'}})
+db.students.update({name: "Evan"},{$push: {interests:{$each:['guitar', 'being annoying']}}})
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~Add the interest 'taxes' into someone's interest array.~~~~~~~~~~~~~~~~~~~~~~~~~~  
+db.students.update({name: "Tina"}, {$push: {interests: "taxes"}}) 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~Remove the 'taxes' interest you just added.~~~~~~~~~~~~~~~~~~~~~~~~~~   
+db.students.update({name: "Tina"}, {$pull: {interests: "taxes"}})
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~Remove all students who are from California (or Washington).~~~~~~~~~~~~~~~~~~~~~~~~~~  
+db.students.remove({$or: [{home_state:"California"}, {home_state:"Washington"}]}) 
+OR SEPERATE
+db.students.remove({home_state:"California"})
+db.students.remove({home_state:"Washington"})
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~Remove a student by name. ~~~~~~~~~~~~~~~~~~~~~~~~~~   
+db.students.remove({name:"Rebecca"})
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~Remove a student whose lucky number is greater than 5 (JUST ONE)~~~~~~~~~~~~~~~~~~~~~~~~~~   
+db.students.remove({lucky_number: {$gt:5}}, {justOne:true})
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~Add a field to each student collection called 'number_of_belts' and set it to 0.~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+db.students.update({},{$set: {"number_of_belts":0}},{multi:true}) 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~Increment this field by 1 for all students in Washington (Seattle Dojo).~~~~~~~~~~~~~~~~~~~~~~~~~~   
+db.students.update({home_state: "Washington"},{$inc: {number_of_belts: 1}},{multi:true})
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~Rename the 'number_of_belts' field to 'belts_earned'~~~~~~~~~~~~~~~~~~~~~~~~~~
+db.students.update({}, {$rename: {"number_of_belts":"belts_earned"}})
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~Remove the 'lucky_number' field.~~~~~~~~~~~~~~~~~~~~~~~~~~   
+db.students.update({}, {$unset:{lucky_number:""}},{multi:true})
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~Add a 'updated_on' field, and set the value as the current date.~~~~~~~~~~~~~~~~~~~~~~~~~~   
+db.students.update({}, {$currentDate:{updated_on:true}},{multi:true})
+
+
+
