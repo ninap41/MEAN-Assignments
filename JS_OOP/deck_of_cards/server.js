@@ -16,8 +16,8 @@ class Deck{
         }
         return this;
     }
-    shuffle(){
-        for (var i = 0; i < 1000; i++)
+    shuffle(){ //THE OVER9000 SHUFFLE with a tempppp :)
+        for (var i = 0; i < 9001; i++)
         {
             var x = Math.floor((Math.random() * this.deck.length));
             var z = Math.floor((Math.random() * this.deck.length));
@@ -36,7 +36,7 @@ class Deck{
         return this.deck.pop();
     }
 }
-
+    ///render for later
     // renderDeck()
     // {
     //     for(var i = 0; i < deck.length; i++)
@@ -68,7 +68,7 @@ class Player {
     }
     draw_full_Hand(deck) {
         for(var i= 0; i <8; i++){
-        this.hand.push(deck.deal() + "\n");
+            this.hand.push(deck.deal() + "\n");
         }
         console.log(this.name + " has drawn (7) of this hand:" + "\n")
         return this.hand;
@@ -88,21 +88,21 @@ class Player {
 
     discard() {
         if(this.hand.length > 0){
-        var cardIndex = Math.floor(Math.random() * this.hand.length)
-        var discarded = this.hand.pop(this.hand[cardIndex])
-        console.log("Hey, " + this.name + " has discarded " + discarded);
+            var cardIndex = Math.floor(Math.random() * this.hand.length)
+            var discarded = this.hand.pop(this.hand[cardIndex])
+            console.log("Hey, " + this.name + " has discarded " + discarded);
         }
         if(this.hand.length === 1){
             console.log("Hey, " + this.name + ". That's Your Last Card! Don't Discard it yet!");
         }
-        return "After discarding, her hand is now.." + "\n" +  this.hand;
+            return "After discarding, her hand is now.." + "\n" +  this.hand;
     }
 }
 
 //__________________PLAYER________________________________
 
 
-console.log("welcome to Deck of cards" + "\n" +"~~~~~~~~~~~~~~~~~~~~~~~");
+console.log("wWlcome to Deck of Cards" + "\n" +"~~~~~~~~~~~~~~~~~~~~~~~");
 let Nina = new Player("Nina");
 const deck = new Deck();
 deck.show_cards_reset()
