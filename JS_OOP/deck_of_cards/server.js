@@ -6,12 +6,17 @@ class Deck{
     }
     show_cards_reset(){
         this.deck=[];
-        const suits = ['Hearts','Clubs','Spades','Diamonds'];
+        const suits = ['Hearts \u{2665}','Diamonds \u{2666}'," Spades \u{2660}",'Clubs \u{2663}'];
         const values= [' Ace',2,3, 4,5,6,7,8,9,10,' Jack',' Queen',' King'];
 
         for(var suit of suits){ //typeof
-            for(var value of values){    
+            for(var value of values){ 
+                if(`${value}` == ' Ace' && `${suit}` == 'Hearts \u{2665}'){
+                    this.deck.push('\u{1F0B1}');
+                }
+                else{
             this.deck.push(` ${value} of ${ suit }`);
+                }
             }
         }
         return this;
@@ -102,7 +107,7 @@ class Player {
 //__________________PLAYER________________________________
 
 
-console.log("wWlcome to Deck of Cards" + "\n" +"~~~~~~~~~~~~~~~~~~~~~~~");
+console.log("Welcome to Deck of Cards" + "\n" +"~~~~~~~~~~~~~~~~~~~~~~~");
 let Nina = new Player("Nina");
 const deck = new Deck();
 deck.show_cards_reset()
