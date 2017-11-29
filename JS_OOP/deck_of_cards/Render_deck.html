@@ -1,0 +1,202 @@
+<!-- <html> -->
+    <!-- ///////DOES NOT WORK YET. REFER TO SERVER.JS -->
+        <!-- <head>
+        <style>
+        .card
+        {
+            border: solid 1px #aaa;
+            border-radius: 9px;
+            width: 95px;
+            height: 150px;
+            float:left;
+            background-color: white;
+            padding: 3px 3px 3px 3px;
+        }
+        
+        .card .value{
+            font-size:15pt;
+            font-family: sans-serif;
+        }
+        
+        .card .suit
+        {
+            background-image: url('suits.png');
+            height: 100px;
+            width: 90px;
+        }
+        
+        .card .diamonds
+        {
+            background-position-y: 100px;
+        }
+        
+        .card .hearts
+        {
+            background-position-x: 90px;
+        }
+        
+        .card .clubs
+        {
+            background-position-x:90px;
+            background-position-y:100px;
+        }
+        </style>
+        
+        <script type="text/javascript">
+        var cards = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+        var suits = ["diamonds", "hearts", "spades", "clubs"];
+        var deck = new Array();
+
+
+        class Deck{
+    constructor(){
+        var deck = new Array();
+    }
+    show_cards_reset(){
+        this.deck=[]
+        const suits = ['hearts','clubs','spades','diamonds'];
+        const values= ['ace','2','3','4','5','6','7','8','9','10','jack','queen','king'];
+
+        for(var suit of suits){ //typeof
+            for(var value of values){    
+            this.deck.push(`${value} of ${ suit }`);
+            }
+        }
+        return this;
+    }
+    shuffle(){
+        for (var i = 0; i < 1000; i++)
+        {
+            var x = Math.floor((Math.random() * this.deck.length));
+            var z = Math.floor((Math.random() * this.deck.length));
+            var tmp = this.deck[x];
+            this.deck[x] = this.deck[z];
+            this.deck[z] = tmp;
+        }
+        return this;
+    }
+
+    deal(){
+        // this.deck.pop();
+        var card = deck[this.deck.length-1];
+        this.deck.splice(this.deck.length-1, 1);
+        return card;
+        // return this.deck.pop();
+    }
+
+    renderDeck()
+    {
+        for(var i = 0; i < this.deck.length; i++)
+        {
+            console.log("thisfar");
+            var card = document.createElement("div");
+            var value = document.createElement("div");
+            var suit = document.createElement("div");
+            card.className = "card";
+            value.className = "value";
+             suit.className = "suit " + this.deck[i].Suit;
+    
+            value.innerHTML = this.deck[i].Value;
+            card.appendChild(value);
+            card.appendChild(suit);
+    
+            document.getElementById("deck").appendChild(card);
+        }
+    }
+    
+} -->
+        <!-- //////////CANT USE CLASSES WITH THOS....
+        
+        // function getDeck()
+        // {
+        //     var deck = new Array();
+        
+        //     for(var i = 0; i < suits.length; i++)
+        //     {
+        //         for(var x = 0; x < cards.length; x++)
+        //         {
+        //             var card = {Value: cards[x], Suit: suits[i]};
+        //             deck.push(card);
+        //         }
+        //     }
+        
+        //     return deck;
+        // }
+        
+        // function deal()
+        // {
+        //     // remove top card from deck
+        //     var card = deck[deck.length-1];
+        //     deck.splice(deck.length-1, 1);
+        //     return card;
+        // }
+        
+        // function shuffle()
+        // {
+        //     // for 1000 turns
+        //     // switch the values of two random cards
+        //     for (var i = 0; i < 1000; i++)
+        //     {
+        //         var location1 = Math.floor((Math.random() * deck.length));
+        //         var location2 = Math.floor((Math.random() * deck.length));
+        //         var tmp = deck[location1];
+        
+        //         deck[location1] = deck[location2];
+        //         deck[location2] = tmp;
+        //     }
+        // }
+        
+        // function renderDeck()
+        // {
+        //     for(var i = 0; i < deck.length; i++)
+        //     {
+        //         var card = document.createElement("div");
+        //         var value = document.createElement("div");
+        //         var suit = document.createElement("div");
+        //         card.className = "card";
+        //         value.className = "value";
+        //         suit.className = "suit " + deck[i].Suit;
+        
+        //         value.innerHTML = deck[i].Value;
+        //         card.appendChild(value);
+        //         card.appendChild(suit);
+        
+        //         document.getElementById("deck").appendChild(card);
+        //     }
+        // }
+        
+       
+        
+     
+        // function load()
+        // {
+        //     const deck = new Deck();
+        //     deck = deck.renderDeck();
+        //     deck.renderDeck();
+        
+        // }
+      
+        // window.onload = load; -->
+        <!-- // </script>
+        // </head>
+        
+        // <body>
+        // <h1>A Deck of Cards</h1>
+        // <div id="deck2"></div>
+        
+        // </body>
+        // </html> -->
+
+
+<html>
+    <head>
+        <title>Deck of Cards</title>
+                <script type="text/javascript">
+            
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
