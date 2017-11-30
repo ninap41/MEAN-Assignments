@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta users="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/skeleton.css'/>   
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users</title>
+    <style>
+            /* #Padding_Please{width:30%;vertical-align:top;display: inline-block; padding: 12rem; padding-top:0px;} */
+           
+        </style>
+    
+</head>
+
+<body>
+
+            
+ 
+  <div style="width:100%;padding: 5rem;">
+    <div id="Padding_Please">    
+        <form id="Padding_Please"action='/users' method='post'>
+        <h1 style="color:black">Create User</h1>
+        <span> Enter users:</span><BR><BR>
+        <input class="align" type="text" name ="name" value=''><BR><BR>
+        <span> Enter Age:</span><BR><BR>
+        <input class="align" type="number" name ="age" value=''><BR><BR>
+        <input type='submit' value='Submit User'>
+        </form>
+    </div>
+
+    <div id="Padding_Please">
+    <table value="Squish">
+    <h1>Existing Users</h1>
+            <tr>    
+                    <th>Name</th>
+                    <th>age</th>
+            </tr>
+    
+            
+                    <% if (users) { %>
+                        <% for (var i in users) { %>
+                            <tr>
+                             <td><%= users[i].name %></td>
+                                <td><%= users[i].age %></td> 
+                            </tr> 
+                        <% } %>
+                    <% } %>
+    </table>
+</div>
+    </div>
+    
+</body>
+</html>
