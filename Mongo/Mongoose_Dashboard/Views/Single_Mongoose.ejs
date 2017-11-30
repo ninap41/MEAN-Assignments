@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta users="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/skeleton.css'/>   
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mongoose Dash</title>
+    <style>
+           .Nav{width:100%;}
+           .Inline{display:inline-block;vertical-align: top;}
+               /* #Padding_Please{width:30%;vertical-align:top;display: inline-block; padding: 12rem; padding-top:0px;} */
+              
+        </style>
+    
+</head>
+
+<body>
+    
+<div  style="width:100%;margin: 5rem; margin-bottom: 1rem;" class="Nav">
+    <a class="Inline" href="/"><button>All Mongoose</button></a>
+    <a class="Inline" href="/New_Mongoose"><button>New Mongoose</button></a>
+</div>
+             
+
+
+<div style="width:100%;padding: 5rem;">
+
+    <h1 >"<%= mongoose.name %>" The Mongoose</h1>
+
+    <h3 style="color:grey">- <%= mongoose.name %> the mongoose is very  <%= mongoose.personality %>!</h3>
+    <h3 style="color:grey">-  They are <%= mongoose.age %> years old.</h3>
+    <form class="Inline" method="POST" action="/destroymongoose/<%= mongoose._id %>"><button style="color:red" type="submit">Delete Goose</button></form>
+    <a class="Inline" href="/Edit_Mongoose/<%= mongoose._id %>"><button style="color:green" type="submit">Edit Goose</button></a>
+    
+    
+    
+</div>
+
+
+</body>
+</html>
+
+
