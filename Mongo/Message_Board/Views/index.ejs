@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta users="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/skeleton.css'/>   
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users</title>
+    <style>
+            /* #Padding_Please{width:30%;vertical-align:top;display: inline-block; padding: 12rem; padding-top:0px;} */
+            .Nav{width:100%;}
+        .Inline{display:inline-block;vertical-align: top; }
+            /* #Padding_Please{width:30%;vertical-align:top;display: inline-block; padding: 12rem; padding-top:0px;} */
+           .Wrapper{width:100%; margin-left:10%;}
+        </style>
+    
+</head>
+
+<body>
+<div class="Wrapper">
+
+
+<!-- NAV BAR/HEADER -->
+    <div style="width:100%;margin: 5rem; margin-bottom: 1rem;" class="Nav">
+            <h1 style="width:50%; margin-bottom: 2rem;" >The Dojo Message Board</h1>
+            <hr>
+    </div> 
+
+
+
+        <!-- MESSAGE FORM -->
+    <div style="width:100%;padding: 5rem;">
+        <form action="/Create_Message" method="post">
+                <h4>Post Message</h4>
+                <span> Name:</span><BR><BR>
+                <input class="align" type="text" name ="name" value=''><BR><BR>
+                <span> Message:</span><BR><BR>
+                <textarea name="content" cols="30" rows="10"></textarea><BR><BR>
+                <input type='submit' value='Submit Message'>
+                        
+        </form>
+    </div>
+
+
+        <!-- APPEND MESSAGES-->
+        <div style="width:50%;padding: 5rem;">
+                <h2>Messages</h2>
+             
+                <% if (messages) { %>
+                <% for (i in messages) { %>
+                        <hr>
+                        <h5>Posted By:<BR> <i><%= messages[i].name  %></i> </h5>
+                        <h5>Message: <BR><i>"<%= messages[i].content %>"</i></h5> 
+                        <form class="Inline" method="post"action="/destroymessage/<%= messages[i]._id %>"><button style="color:green">Delete Message</button></form>
+                        <% for (c = 0; c < messages[i]._comments.length; c++) { %>
+                               <div style="padding:1rem;border:1px solid grey;"> <p> Name: <%= messages[i]._comments[c].poster %></p>
+                                <p>Comment: <%= messages[i]._comments[c].text %>   </p>
+                                </div>
+                         <!-- CONTENT NOT SHOWING BUT IN DB -->
+                            <% } %>
+           
+                        <BR><BR>
+
+
+
+                         <!-- COMMENT FORM -->
+                        <form action="/Create_Comment/<%= messages[i]._id %>" method="post">
+                                <h4>Post Comment</h4>
+                                <span> Name:</span><BR><BR>
+                                <input class="align" type="text" name ="poster" value=''><BR><BR>
+                                <span> Comment:</span><BR><BR>
+                                <textarea name="text" cols="30" rows="10"></textarea><BR><BR>
+                                <input type='submit' value='Submit Comment'>              
+                        </form>
+                        
+                 
+                <% } %>
+                <% } %>
+            
+        </div>
+
+</div>
+
+</body>
+</html>

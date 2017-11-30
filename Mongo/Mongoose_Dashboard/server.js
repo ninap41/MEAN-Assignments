@@ -95,13 +95,6 @@ var MongooseSchema = new mongoose.Schema({
 
   app.get('/Single_Mongoose/:id', function(req,res){
     Mongoose.findOne({_id:req.params.id}, function(err,single_mongoose){
-    //   if(err) {
-    //     console.log("ERRORS");
-    //     console.log(err);
-    // } else {
-    //     console.log("mongoose");
-    //     console.log(single_mongoose);             //NOT NECCESARY, JUST MAKE SURE ERR is in PARAMETER AT TOP
-    // }
      
         res.render('Single_Mongoose', {mongoose: single_mongoose});
       
