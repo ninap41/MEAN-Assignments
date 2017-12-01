@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta users="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/skeleton.css'/>   
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mongoose Dash</title>
+    <style>
+        .Nav{width:100%;}
+        .Inline{display:inline-block;vertical-align: top;}
+            /* #Padding_Please{width:30%;vertical-align:top;display: inline-block; padding: 12rem; padding-top:0px;} */
+           
+    </style>
+    
+</head>
+
+<body>
+
+<div style="width:100%;margin: 5rem; margin-bottom: 1rem;" class="Nav">
+    <h1 style="width:50%; margin-bottom: 2rem;" >Mongoose Dashboard</h1>
+    <hr>
+    <a class="Inline" href="/"><button>All Mongoose</button></a>
+    <a class="Inline" href="/New_Mongoose"><button>New Mongoose</button></a>
+    
+</div> 
+    
+   
+
+<div style="width:100%;padding: 5rem;">
+<div id="Padding_Please">    
+    <form id="Padding_Please"action='/createmongoose' method='post'>
+    <h2 style="color:black">New Mongoose</h2>
+    <span> Enter Name:</span><BR><BR>
+    <input class="align" type="text" name ="name" value=''><BR><BR>
+    <span> Enter Age:</span><BR><BR>
+    <input class="align" type="number" name ="age" value=''><BR><BR>
+    <span> Choose Personality:</span><BR><BR>
+    <select name ="personality" class= "line_em">
+        <option value="Bashful">Bashful</option>
+        <option value="Goofy">Goofy</option>
+        <option value="Angry">Angry</option>
+        <option value="Secretive">Secretive</option>
+        <option value="Wild">Wild</option>
+        <option value="Crazy">Crazy</option>
+        <option value="Friendly">Friendly</option>
+        <option value="Shy">Shy</option>
+        <option value="Dumb">Dumb</option>
+        <option value="Ignorant">Ignorant</option>
+        <option value="Intellectual">Intellectual</option>
+    </select></span><BR><BR><BR>
+    <input type='submit' value='Submit Mongoose'>
+    </form>
+</div>
+            
+
+
+</body>
+</html>

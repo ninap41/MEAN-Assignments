@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta users="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/skeleton.css'/>   
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users</title>
+    <style>
+            /* #Padding_Please{width:30%;vertical-align:top;display: inline-block; padding: 12rem; padding-top:0px;} */
+            .Nav{width:100%;}
+        .Inline{display:inline-block;vertical-align: top; }
+            /* #Padding_Please{width:30%;vertical-align:top;display: inline-block; padding: 12rem; padding-top:0px;} */
+           
+        </style>
+    
+</head>
+
+<body>
+
+    <div style="width:100%;margin: 5rem; margin-bottom: 1rem;" class="Nav">
+            <h1 style="width:50%; margin-bottom: 2rem;" >Mongoose Dashboard</h1>
+            <hr>
+            <a class="Inline" href="/"><button>All Mongoose</button></a>
+            <a class="Inline" href="/New_Mongoose"><button>New Mongoose</button></a>
+            
+    </div> 
+
+
+    <div style="width:100%;padding: 5rem;">
+    <div id="Padding_Please">
+    <table value="Squish">
+    <h2>Existing Mongoose...</h2>
+            <tr>    
+                    <th><h5>Name</h5></th>
+                    <th><h5>Age</h5></th>
+                    <th><h5>Actions...</h5>  </th>
+                    <th></th>
+                    <th> </th>
+            </tr>
+    
+            
+                    <% if (mongooses) { %>
+                        <% for (var i in mongooses) { %>
+                            <tr>
+                             <td><p><i><%= mongooses[i].name  %></i> the <i>"<%= mongooses[i].personality %>"</i> Mongoose</p></td>
+                                <td><p><%= mongooses[i].age %> years</p></td> 
+                                <td><a class="Inline" href="/Single_Mongoose/<%= mongooses[i]._id %>"><button style="color:green">View Goose</button></a></td>
+                                <td><a class="Inline" href="/Edit_Mongoose/<%= mongooses[i]._id %>"><button style="color:orange" type="submit">Edit Goose</button></a></td>
+                                <!-- <td><form class="Inline" method="POST" action="/destroymongoose/<%= mongooses[i]._id %>"><button style="color:red" type="submit">Delete Goose</button></form></td> -->
+                            </tr> 
+                            <% } %>
+                   
+
+    </table>
+    <% } else { %>
+        
+            <h1>No Mongoose!</h1>>
+        
+        <% } %>
+</div>
+
+    
+</body>
+</html>
