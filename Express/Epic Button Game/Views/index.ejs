@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Form</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+         $(document). ready(function (){
+            // this triggers the connection event in our server!
+            var socket  = io.connect();
+            // we'll write all the socket stuff after the above line!
+            // $( 'button').click(function (){
+            // socket.emit( "button_clicked", {reason:  "because I want to learn about sockets!"});
+            //     });
+            socket.on( 'server_response', function (data){
+            console.log( 'The server says: ' + data.response);
+                }); 
+
+                $('#button').click(function () {
+                    socket.emit("clicked");
+                });
+                socket.on('server_response', function (data) {
+                    $('h9').html(data.response);
+                    console.log(data.response);
+                });
+                $('#reset').click(function () {
+                    socket.emit("clickedagain");
+                });
+                socket.on('server_response', function (data) {
+                    $('h9').html(data.response);
+                    console.log(data.response);
+                });
+
+            });    
+        
+    
+
+    </script>
+    
+    <style>
+        #contain{width: 30rem;height: 30rem;margin-left: 30%;}
+        legend{font-size: 3rem;margin-left: 5rem;}
+        form{margin: 1rem;padding-left: 5rem;}
+    </style>
+</head>
+
+
+<body>
+        
+  
+    
+   <!-- GONNA GET A RANDOM NUMBER EMITTED TO THE DIV -->
+   <div style="color:blue;padding:20px;border: 1px solid blue; margin-left: 20%; width: 30rem; text-align: center;"id="Visited"> 
+    <h2 style="color:black">The Epic Number Game</h2>
+<h3>
+    <h9><% count %></h9>
+</h3>
+
+
+
+<span> Push The Button To Update The Count!</span><BR><BR>
+
+<button id="button" value='Push The Epic Button'>Push The Epic Button</Button>
+    <button id="reset" value='reset'>reset</Button>
+
+
+
+</div>
+</body>
+</html>
