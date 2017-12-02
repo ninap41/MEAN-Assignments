@@ -7,31 +7,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quoting Dojo</title>
     <style>
-            /* #Padding_Please{width:30%;vertical-align:top;display: inline-block; padding: 12rem; padding-top:0px;} */
+        .inline{display:inline-block; width: 30%;vertical-align: top;}
+            #Padding_Please{width:30%;vertical-align:top;display: inline-block; padding: 5rem; padding-top:0px;}
     </style>
 </head>
 
 <body>
 
-            
- 
+        <div style="width:100%;margin: 5rem; margin-bottom: 1rem;" class="Nav">
+                <h1 class="inline" style="width:50%; margin-bottom: 2rem;" >Login and Registration</h1>
+                <a class="inline" href="/success"><button>Display Users</button></a>
+                <hr>
+               
+                
+        </div> 
+    
   <div style="width:100%;padding: 5rem;">
+    <% if (err) { %>
+        <%= err %>
+        <% } %>
+
     <div id="Padding_Please">    
-        <form id="Padding_Please"action='/quotes' method='post'>
-        <h1 style="color:black">Welcome To Quoting Dojo</h1>
-        <hr>
-        <h3> Your Name:</h3><BR><BR>
-        <input class="align" type="text" name ="name" value=''><BR><BR>
-        <h3> Your Quote:</h3><BR><BR>
-        <textarea class="align" type="text" name ="quote" value=' placeholder="Make sure your quote does not exceed 100 characters"'></textarea><BR><BR>
-        <input type='submit' value='Submit'>
+
+        <form id="Padding_Please" action='/users' method='post'>
+        <h2 style="color:black">Registration</h2><BR>
+        <h8> First Name:</h8><BR><BR>
+        <input class="align" type="text" name ="first_name"><BR><BR>
+        <h8> Last Name:</h8><BR><BR>
+        <input class="align" type="text" name ="last_name"><BR><BR>
+        <h8> Email:</h8><BR><BR>
+        <input class="align" type="email" name ="email"><BR><BR>
+        <h8> Password:</h8><BR><BR>
+        <input class="align" type="password" name ="password"><BR><BR>
+        <h8> Confirm Password:</h8><BR><BR>
+        <input class="align" type="password" name ="confirm_password"><BR><BR>
+        <h8> Birthday:</h8><BR><BR>
+        <input class="align" type="date" name ="birthday"><BR><BR>
+                <input type='submit' value='Register'>
         </form>
     </div>
-       <a href="/quotes"><button>View Quotes</button></a>
 
-   
-</div>
+
+    <div id="Padding_Please">         
+        <form id="Padding_Please"action='/login' method='post'>
+            <h2 style="color:black">Login</h2><BR>
+            <h8> Email:</h8><BR><BR>
+            <input class="align" type="email" name ="email"><BR><BR>
+            <h8> Password:</h8><BR><BR>
+            <input class="align" type="password" name ="password"><BR><BR>
+            <input type='submit' value='Login'>
+        </form>
     </div>
+
+</div>
+
     
 </body>
 </html>

@@ -31,6 +31,7 @@
                         
                         <td><i>"<%= quotes[i].quote %>"</i></td> 
                         <td>- <b><%= quotes[i].name %> </b></td>
+                        <td>- <b><%= quotes[i].createdAt.toDateString() %> </b></td>
                     </tr> 
                 <% } %>
             <% } %>
