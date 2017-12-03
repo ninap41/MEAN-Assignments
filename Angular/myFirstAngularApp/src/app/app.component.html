@@ -25,9 +25,17 @@
   </li>
   
 </ul>
-
+<div [ngStyle]="{ 
+  'background-color': 'black',
+  'color' : 'white',
+  'font-weight': '400px'}
+">
 <h1>{{user.firstName}}'s Cool Status:</h1>
-<h2 *ngIf='vadesCool'>True</h2>
+<h2 *ngIf='vadesCool'>True (Using ngStyle)</h2>
+<h2 *ngIf='vadesCool' [ngClass]="{'black': 'true', '400px': 'false'}">True (Using ngClass)</h2>
+
 <h2 *ngIf='!vadesCool'>False</h2>
+</div>
+
 </div>
 

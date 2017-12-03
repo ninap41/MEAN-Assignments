@@ -1,0 +1,48 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center;">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+<div style="text-align:center; margin-left: 15%;margin-right: 10%;width:40%;">
+    <h2 [ngStyle]="{ 
+      'width' : '100rem',
+      'text-align' : 'left'}">  Good Day, {{user.first_name}}  <BR>      {{ today | date:'fullDate'}} <BR>  </h2>
+<table [ngStyle]="{ 
+  'padding' : '3rem'}" value="Squish">
+
+  <tr>
+          <th>Email</th>
+          <th>Importance</th>
+          <th>Subject</th>
+          <th>Content</th>
+  </tr>
+
+  <tr *ngFor="let user of emails">  
+   
+          <td><b>{{user.Sender}}</b></td> 
+          <td *ngIf='user.Importance === true' [ngStyle]="{ 
+            'color' : 'red',
+            'font-weight': '600px'}"
+            >High</td> 
+          <td *ngIf='user.Importance === false' [ngStyle]="{ 
+            'color' : 'green',
+            'font-weight': '600px'}">Low</td> 
+          <td *ngIf='user.Importance === true' >*IMPORTANT*{{user.Subject}}</td> 
+          <td *ngIf='user.Importance === false' >{{user.Subject}}</td> 
+          <td [ngStyle]="{ 
+        
+            'color': 'grey'}"><i>{{user.Content}}</i></td> 
+           
+        </tr>
+
+  </table>
+</div>
+
+
+
+
+
+
+

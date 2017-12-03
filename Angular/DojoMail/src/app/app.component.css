@@ -1,0 +1,6 @@
+@media (min-width: 10px){
+    table {width: 50rem;
+        font-size: 2rem;
+        background-color: rgba(169, 208, 255, 0.276)
+    }
+}
