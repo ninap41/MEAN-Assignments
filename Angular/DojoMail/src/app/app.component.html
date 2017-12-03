@@ -8,7 +8,7 @@
 <div style="text-align:center; margin-left: 15%;margin-right: 10%;width:40%;">
     <h2 [ngStyle]="{ 
       'width' : '100rem',
-      'text-align' : 'left'}">  Good Day, {{user.first_name}}  <BR>      {{ today | date:'fullDate'}} <BR>  </h2>
+      'text-align' : 'left'}"  >  Good day, {{user.first_name}}!  <BR>      {{ today | date:'EEEE || MMMM d, y || h:mm a'}} <BR>  </h2>
 <table [ngStyle]="{ 
   'padding' : '3rem'}" value="Squish">
 
