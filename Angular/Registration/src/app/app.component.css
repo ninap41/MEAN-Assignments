@@ -1,0 +1,10 @@
+p {color:red;}
+form{width:100%;}
+
+
+p.ng-invalid { }
+p.ng-valid { }
+p.ng-untouched { }
+p.ng-touched { }
+p.ng-dirty {color:red; }
+input.ng-pristine { }

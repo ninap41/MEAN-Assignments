@@ -1,0 +1,202 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{valid |json}}
+    Welcome to {{ title }}!
+  </h1>
+  <h5 *ngIf="valid" style = "color:green">Thanks for Registering {{users[users.length-1].firstName}}! You have registered with {{users[users.length-1].email}}. Have a Great Day!</h5>  <!-- THERES NO SESSION SO THIS IS NECCESARY -->
+  <h5 *ngIf="!valid && message == 'Something Happened. Please Try Again' " style = "color:red">
+    {{message}}. Do not leave required fields empty. </h5>  <!-- THERES NO SESSION SO THIS IS NECCESARY -->
+  
+  <!-- <h5 *ngFor="let userss of users">{{ userss }}</h5> -->
+</div>
+
+<div style="text-align:center">
+<form (submit)="onSubmit()" #userForm="ngForm"> 
+ First Name:<input 
+    type="text" 
+    name="firstName" 
+    required 
+    minlength="2" 
+    maxlength="24"
+    [(ngModel)]="user.firstName"
+    #firstName='ngModel'
+ />          
+ <div *ngIf='firstName.errors'>
+    <p *ngIf='!valid && firstName.errors.required && firstName.dirty'>first name is required</p>
+    <p *ngIf='!valid && firstName.errors.minlength && firstName.dirty'>first name must be at least 2 characters</p>
+    <p *ngIf='!valid && firstName.errors.maxlength && firstName.dirty'>first name must not exceed 24 characters</p>
+    
+</div>
+             
+                <BR>
+  Last Name:<input 
+    type="text" 
+    name="lastName" 
+    required 
+    minlength="2" 
+    maxlength="24"
+    [(ngModel)]="user.lastName"
+    #lastName='ngModel'
+  
+  />      
+  <div *ngIf='lastName.errors'>
+      <p *ngIf='!valid && lastName.errors.required && lastName.dirty'>Last name is required</p>
+      <p *ngIf='!valid && lastName.errors.minlength && lastName.dirty'>last name must be longer than 2 characters</p>
+      <p *ngIf='!valid && lastName.errors.maxlength && lastName.dirty'>last name must not exceed 24 characters</p>
+      
+  </div>  
+  <br>
+  Email:<input 
+  type="text" 
+  name="email" 
+  required 
+  minlength="4" 
+  
+  maxlength="24"
+  [(ngModel)]="user.email"
+  #email="ngModel"  
+    />   
+    <div *ngIf='email.errors'>
+        <p *ngIf='!valid && email.errors.required  && email.dirty'>Email is required</p>
+        <p *ngIf='!valid && email.errors.minlength && email.dirty'>email must have at least 7 chars and @</p>
+        
+        
+    </div>
+    <br>
+  Password: <input 
+    type="password" 
+    name="password"
+    required 
+
+    pattern="^([a-zA-Z0-9@*#]{8,15})$"
+    [(ngModel)]="user.password"
+    #password="ngModel"
+  /> <br><br>
+
+  <div *ngIf='password.errors'>
+      <p *ngIf='!valid && password.errors.required  && password.dirty'>Password is required</p>
+      <p *ngIf='!valid && password.errors.pattern && password.dirty'>Password must be  between 8-14 characters</p>
+  </div>
+
+  Street Address:
+  <input
+    type="text"
+    name="address"
+    required 
+    minlength="8"
+    [(ngModel)] ="user.address"
+    #address="ngModel"
+  /> 
+  <div *ngIf='address.errors'>
+      <p *ngIf='!valid && address.errors.required  && address.dirty'>address is required</p>
+      <p *ngIf='!valid && address.errors.minlength && address.dirty'>address must have at least 8 characters</p>
+  </div>
+  
+  
+  <br>
+    Unit/Apt #
+    <input
+    type="text"
+    name="unit"
+    [(ngModel)] ="user.unit"
+    #unit="ngModel"
+  /><BR>
+    City: <input 
+    type="text" 
+    name="city"
+    required 
+    minlength="4" 
+    maxlength="24"
+    [(ngModel)]="user.city"
+    #city="ngModel"
+  />  
+  <div *ngIf='city.errors'>
+      <p *ngIf='!valid && city.errors.required  && city.dirty'>city is required</p>
+      <p *ngIf='!valid && city.errors.minlength && city.dirty'>city must have at least 4 characters</p>
+      <!-- <p *ngIf='!valid && city.errors.maxlength && city.dirty'>city must have max 24 characters</p> -->
+      
+  </div>
+  
+  <br>
+  State: <select name="state" required [(ngModel)]="user.state" #state="ngModel">
+    <option value="alabama">Alabama</option> 
+    <option value="alaska">Alaska</option> 
+    <option value="arizona">Arizona</option> 
+    <option value="arkansas">Arkansas</option> 
+    <option value="california">California</option> 
+    <option value="colorado">Colorado</option> 
+    <option value="delaware">Delaware</option> 
+    <option value="florida">Florida</option> 
+    <option value="georgia">Georgia</option> 
+    <option value="hawaii">Hawaii</option> 
+    <option value="idaho">Idaho</option> 
+    <option value="illinois">Illinois</option> 
+    <option value="indiana">Indiana</option> 
+    <option value="iowa">Iowa</option> 
+    <option value="kansas">Kansas</option> 
+    <option value="kentucky">Kentucky</option> 
+    <option value="louisiana">Louisiana</option> 
+    <option value="maine">Maine</option> 
+    <option value="maryland">Maryland</option> 
+    <option value="massachusetts">Massachusetts</option> 
+    <option value="michigan">Michigan</option> 
+    <option value="minnesota">Minnesota</option> 
+    <option value="mississippi">Mississippi</option> 
+    <option value="missouri">Missouri</option> 
+    <option value="montana">Montana</option> 
+    <option value="nebraska">Nebraska</option> 
+    <option value="nevada">Nevada</option> 
+    <option value="newHampshire">New Hampshire</option> 
+    <option value="newJersey">New Jersey</option> 
+    <option value="newMexico">New Mexico</option> 
+    <option value="newYork">New York</option> 
+    <option value="northCarolina">North Carolina</option> 
+    <option value="northDakota">North Dakota</option> 
+    <option value="ohio">Ohio</option> 
+    <option value="oklahoma">Oklahoma</option> 
+    <option value="oregon">Oregon</option> 
+    <option value="pennsylvania">Pennsylvania</option> 
+    <option value="rhodeIsland">Rhode Island</option> 
+    <option value="southCarolina">South Carolina</option> 
+    <option value="southDakota">South Dakota</option> 
+    <option value="tennessee">Tennessee</option> 
+    <option value="texas">Texas</option> 
+    <option value="utah">Utah</option> 
+    <option value="vermont">Vermont</option> 
+    <option value="virginia">Virginia</option> 
+    <option value="washington">Washington</option> 
+    <option value="westVirginia">West Virginia</option> 
+    <option value="wisconsin">Wisconsin</option> 
+    <option value="wyoming">Wyoming</option> 
+  </select> 
+  <div *ngIf='state.errors'>
+      <p *ngIf='!valid && state.errors.required && state.dirty'>State is required</p>
+  </div><br><br>
+
+  Are You Feeling Lucky?:<BR>
+  Yes <input type="radio"  name="lucky" required value="Yes" [(ngModel)]="user.lucky" #lucky='ngModel'/>
+  No <input type="radio" name="lucky" required value="No" [(ngModel)]="user.lucky" #lucky='ngModel'/>
+
+
+  <div *ngIf='lucky.errors'>
+      <p *ngIf='!valid && lucky.errors.required '>You must let us know if you feel lucky!</p>
+  </div>
+
+  <br><br><BR> 
+  <button *ngIf='firstName.errors || lastName.errors || email.errors || password.errors || city.errors || state.errors || lucky.errors || address.errors'   type="submit"  >Not Valid Register</button>
+  <button *ngIf='!firstName.errors && !lastName.errors && !password.errors  && !email.errors && !city.errors && !state.errors && !lucky.errors && !address.errors' type="submit" value="Register">Register</button>
+  
+</form>
+</div>
+
+
+<h5 *ngFor="let userList of users">
+  <ul>
+    <li>{{userList.firstName}}</li>
+    <li>{{userList.lastName}}</li>
+    <li>{{userList.email}}</li>
+    
+    </ul>
+  </h5>
+{{user | json}}
