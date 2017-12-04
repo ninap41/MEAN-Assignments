@@ -5,6 +5,18 @@
   </h1>
 
 <h1>TimeZone</h1>
-{{ today | date:'EEEE || MMMM d, y || h:mm a'}}
-<button (click)="FindZone()"[ngClass]="{select: lastTimeZoneSelected === 'PST'}" >Pacific</button>
-  </div>
+
+<button type="button"(click)="FindZone('PST')"[ngClass]="{ timeZone: timeZone === 'PST'}" >Pacific</button>
+<button type="button"(click)="FindZone('EST')"[ngClass]="{ timeZone: timeZone === 'EST'}" >Eastern</button>
+<button type="button"(click)="FindZone('CST')"[ngClass]="{ timeZone: timeZone === 'CST'}" >Central</button>
+<button type="button"(click)="FindZone('MST')"[ngClass]="{timeZone: timeZone === 'MST'}" >Mountain</button>
+
+<!-- timezone is the object! in class -->
+<BR><BR>
+  <!-- [ngStyle]="{'color' : 'color'} -->
+<h1 >
+    <span [ngStyle]="{'color' : color}">{{ Region }}</span><BR>
+  {{ today | date:'h:mm a' }}
+</h1>
+
+
