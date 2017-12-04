@@ -10,7 +10,8 @@ export class AppComponent {
   today = new Date();
   timeZone = ''; // empty variable to plug timezone into
   Region =""
-  color : String = 'blue';
+  // color : String = 'blue';
+  color = 'blue';
 
   FindZone(Zone) { 
     this.today = new Date();
