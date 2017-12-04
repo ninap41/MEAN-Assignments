@@ -1,0 +1,10 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+
+<h1>TimeZone</h1>
+{{ today | date:'EEEE || MMMM d, y || h:mm a'}}
+<button (click)="FindZone()"[ngClass]="{select: lastTimeZoneSelected === 'PST'}" >Pacific</button>
+  </div>
