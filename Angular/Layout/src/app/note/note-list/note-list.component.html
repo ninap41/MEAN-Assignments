@@ -1,0 +1,11 @@
+<h2>
+LIST COMPONENT
+</h2>
+{{ myNotes | json}}
+<BR><BR>
+<h3 *ngFor="let note of myNotes">
+  {{note.title}}
+</h3>
+
+
+<button (click)="callParent()">Click add to Parent</button>

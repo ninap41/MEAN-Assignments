@@ -1,0 +1,11 @@
+<h2>
+NOTE COMPONENT
+</h2>
+
+
+{{notes | json}}
+<app-note-list [myNotes]="notes"  (deleteEvent) = "delete($event)" (myEvent) = "invoke($event)">{{notes }}</app-note-list>
+
+
+
+<button (click)="delete()">Click To Delete FROM PARENT</button>
