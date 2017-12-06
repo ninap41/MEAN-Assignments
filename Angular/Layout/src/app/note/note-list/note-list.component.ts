@@ -20,9 +20,6 @@ NotesList = this.myNotes;
   callParent(){
     this.myEvent.emit(this.nameslist[Math.floor(Math.random() * 3)]);
   }
-  
- 
-
   ngOnInit() {
   }
 

@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    {{valid |json}}
+    <!-- {{valid |json}} -->
     Welcome to {{ title }}!
   </h1>
   <h5 *ngIf="valid" style = "color:green">Thanks for Registering {{users[users.length-1].firstName}}! You have registered with {{users[users.length-1].email}}. Have a Great Day!</h5>  <!-- THERES NO SESSION SO THIS IS NECCESARY -->
@@ -184,19 +184,20 @@
   </div>
 
   <br><br><BR> 
-  <button *ngIf='firstName.errors || lastName.errors || email.errors || password.errors || city.errors || state.errors || lucky.errors || address.errors'   type="submit"  >Not Valid Register</button>
-  <button *ngIf='!firstName.errors && !lastName.errors && !password.errors  && !email.errors && !city.errors && !state.errors && !lucky.errors && !address.errors' type="submit" value="Register">Register</button>
+    <!-- <button *ngIf='firstName.errors || lastName.errors || email.errors || password.errors || city.errors || state.errors || lucky.errors || address.errors'> Not Valid Register</button> -->
+    <h3 *ngIf='!userForm.valid'>Make sure your fields are valid!</h3>
+    
+  <button *ngIf='userForm.valid' type="submit" value="Register">Register</button>
   
 </form>
 </div>
 
 
 <h5 *ngFor="let userList of users">
-  <ul>
+  <div class="align">
     <li>{{userList.firstName}}</li>
     <li>{{userList.lastName}}</li>
     <li>{{userList.email}}</li>
-    
-    </ul>
+  </div>
   </h5>
 {{user | json}}

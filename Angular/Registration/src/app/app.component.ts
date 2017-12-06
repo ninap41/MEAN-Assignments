@@ -23,11 +23,12 @@ export class AppComponent {
     // else{
     //   this.valid = true;
     // }
-    // if(this.valid === true){
+  
      
       this.valid = true;
       this.users.push(this.user);
       this.user = new User();
+    
     }
   }
 

@@ -8,3 +8,9 @@ p.ng-untouched { }
 p.ng-touched { }
 p.ng-dirty {color:red; }
 input.ng-pristine { }
+
+.align{
+    width: 20%;
+    vertical-align: top;
+    display: inline-block;
+}

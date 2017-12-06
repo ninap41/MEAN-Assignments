@@ -4,16 +4,17 @@ var mongodbErrorHandler = require('mongoose-mongodb-errors')
 
 
 var UserSchema = new mongoose.Schema({
-    first_name: {type: String, minlength: 1, required: [true, "First Name Required"]},
-    last_name: {type: String, minlength: [1,"Must be at least onecharacter"],  required: [true, "Last Name Required"]},
-    birthday: {type: Date, required: [true, 'Please Enter a Date']},
+    first_name: {type: String,trim: true, minlength: 1, required: [true, "First Name Required"]},
+    last_name: {type: String,trim: true, minlength: [1,"Must be at least onecharacter"],  required: [true, "Last Name Required"]},
+    birthday: {type: Date,trim: true,required: [true, 'Please Enter a Date']},
     email: {
         type: String, minlength: 1,  
+        trim: true,
         required: true, 
         unique: true,
         validate: {
             validator: function(v) {
-                return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v);
+                return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v);//returns true or false
               },
             message: '{VALUE} is not a valid !'
         },
@@ -21,7 +22,7 @@ var UserSchema = new mongoose.Schema({
     password: {type: String ,minlength: 8, maxlength: 32, required: true,
     validating: {
         validator: function( val ) {
-          return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,32}/.test( val );
+          return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,32}/.test(val); //returns true or false
         },
         message: "Password failed validation, you must have at least 1 number, uppercase and special character"
       },
@@ -32,18 +33,17 @@ var UserSchema = new mongoose.Schema({
 
 UserSchema.pre('save', function(done){
     var hash = bcrypt.hashSync(this.password, bcrypt.genSaltSync(10))
-        this.password = hash;
+        this.password = hash; //
         done();
-        
 });
 
 UserSchema.post('save', function(err, doc, next) {
   
-    // if (err.name === 'MongoError' && err.code === 11000) {
-    //   next(new Error('There was a duplicate key error, boiiii'));
-    // } else {
-    //   next(err);
-    // }
+    if (err.name === 'MongoError' && err.code === 11000) {
+      next(new Error('There was a duplicate key error'));
+    } else {
+      next(err);
+    }
   });
 
 var User = mongoose.model('User', UserSchema);

@@ -39,11 +39,11 @@ UserSchema.pre('save', function(done){
 
 UserSchema.post('save', function(err, doc, next) {
   
-    // if (err.name === 'MongoError' && err.code === 11000) {
-    //   next(new Error('There was a duplicate key error, boiiii'));
-    // } else {
-    //   next(err);
-    // }
+    if (err.name === 'MongoError' && err.code === 11000) {
+      next(new Error('There was a duplicate key error'));
+    } else {
+      next(err);
+    }
   });
 
 var User = mongoose.model('User', UserSchema);

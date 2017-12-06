@@ -7,7 +7,8 @@ module.exports = {
 
   show: function(req, res) {
   
-    User.find({}, function(err, users,logged_user) {
+    User.find({}, function(err, users) {
+     
       //  temp = "this is message";
       // // temp=JSON.stringify(req.tempData.get('test_val'));
       console.log(req.session.currUser)
@@ -19,7 +20,7 @@ module.exports = {
     
     if(err){
       console.log("error");
-      res.json({'err': err})
+      res.json({'err': err.errors})
     }
     else{
     var user = new User({
@@ -34,7 +35,7 @@ module.exports = {
     user.save(function(err) {
       if(err){
         console.log("something went wrong");
-        console.log(err);
+        console.log(err.errors);
      
         err = {
           errors:
@@ -49,7 +50,7 @@ module.exports = {
               },
           name: "Validation error"
           }
-          res.json({'err': err})
+          res.json({'err': err.errors})
 
       } else {
         req.session.currUser = user; 
@@ -77,7 +78,7 @@ module.exports = {
            if(err){
            
              console.log(err);
-             res.json({'err': err})
+             res.json({'err': err.errors})
            }
            else{
                 if(user.email === req.body.email){

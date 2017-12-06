@@ -1,0 +1,14 @@
+span{
+    width: 20%; 
+    display: inline-block;
+    vertical-align: top;
+}
+button {
+    width: 12rem;
+}
+p.ng-invalid {color:red;}
+
+p.ng-touched {color:red }
+p.ng-dirty {color:orange; }
+
+p {color:red;}

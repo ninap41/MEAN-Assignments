@@ -1,0 +1,74 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  
+  <form #quoteForm="ngForm" (submit)='onSubmit()'>
+      <label>Quote:</label>
+      <textarea 
+      placeholder="With great power, comes great responsibility"
+      required 
+      minlength="4" 
+      maxlength="100" 
+      name="quote" 
+      [(ngModel)]='newQuote.content' 
+      #content='ngModel'>
+    </textarea>
+    <div *ngIf='content.errors'>
+        <p *ngIf='!valid && content.errors.required && content.dirty'>Quote is required</p>
+        <p *ngIf='!valid && content.errors.minlength && content.dirty'>Quote must be at least 4 characters long</p>
+        <p *ngIf='!valid && content.errors.maxlength && content.dirty'>Quote must be max 4 characters long</p>
+        
+        
+    </div>
+    <br>
+      <label>Author:</label>
+      <input 
+      placeholder="Uncle Ben"      
+      required 
+      minlength="2" 
+      maxlength="20" 
+      type="text" 
+      name="author" 
+      [(ngModel)]='newQuote.author' 
+      #author='ngModel'
+      /><BR>
+        <div *ngIf='author.errors'>
+            <p *ngIf='!valid && author.errors.required && author.dirty'>Author is required</p>
+            <p *ngIf='!valid && author.errors.minlength && author.dirty'>Author must be max 20 characters long</p>
+            
+        </div>
+
+      <!-- <ng-template #valid> -->
+    <button *ngIf='quoteForm.valid' type="submit" >Add Quote</button>
+ <button type="button" style="border:none"*ngIf='!quoteForm.valid'>Fill Out Form</button>
+
+      <!-- </ng-template> -->
+    </form>
+    <h2>List of Quotes</h2>
+
+
+
+
+
+
+      <!-- [myQuotes]="quoteslist" cannot work with in other component, becuse ID doesnt AutoIcrement like DB. LIST -->
+
+      <app-quotes [myQuotes]="quoteslist"
+      (myEvent)="invokeDel($event)" (myEvent2)="invokeUp($event)" (myEvent3)="invokeDown($event)" ></app-quotes>
+
+
+
+<!--       
+<h2>RANDOM LIST CHECK IN PARENT</h2>
+{{ alist | json}}
+<BR>
+  <h2>RANDOM LIST CHECK FROM CHILD</h2>
+{{ myQuotes | json}}
+<BR>
+  <h2>quotes LIST CHECK FROM PARENT COMPONENT</h2>
+
+<BR>
+  <h2>new Quote being entered</h2>
+{{ newQuote | json }} -->
