@@ -8,7 +8,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./quotes.component.css']
 })
 export class QuotesComponent implements OnInit {
-
+  // trackByFn(idx, item) {
+  //   return item.id;
+  // }
 @Input() myQuotes;
 orderBy: 'myQoutes.vote'
 

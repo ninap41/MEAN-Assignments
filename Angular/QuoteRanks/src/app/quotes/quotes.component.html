@@ -1,6 +1,6 @@
 
 <!-- installed angular 2 ORDER PIPE but NOT WORKING -->
-<h5  *ngFor="let quotesList of myQuotes | orderBy: 'myQuotes.vote'; let idx = index" ng-options=""  > 
+<h5  *ngFor="let quotesList of myQuotes;let idx = index" ng-options=""  > 
     <!-- IDX CAN BE CARRIED THROUGH DOES NOT NEED TO BE "INPUTED" -->
     <div class="align" >
       
@@ -8,17 +8,16 @@
      + {{quotesList.vote}} 
     </div>     
                  <div class="align">
-                <span > 
+                <span> 
                     <button   (click)="downQuoteP($event,idx)"  style="background-color: red;color:white;" type="button" >Vote down</button><BR>
                     <button  (click)="upQuoteP($event,idx)"style="background-color: green;color:white;" type="button" >Vote up</button><BR>
                     <button  (click) ="delQuoteP($event,idx)"  style="color:white;background-color: grey;" type="button" >Delete</button>
-                 </span>
+                </span>
     </div>
- 
+
     </h5>
-    
     <div class="align" *ngIf="myQuotes.length === 0">
-            <h5>"There appears to be no quotes!" - anonymous</h5>
+     <h5>"There appears to be no quotes!" - anonymous</h5>
     </div>
  
 

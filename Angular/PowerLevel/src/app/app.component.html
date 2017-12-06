@@ -1,0 +1,36 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center; width: 80%; height: 75%; margin-left: 10%">
+ <fieldset>
+   <legend><h1>{{ title }}</h1></legend>
+
+   <form #powerForm="ngForm" (submit)='onSubmit()'>
+      <input
+      placeholder="Enter Between 1-100"
+      required 
+      max="100"
+      type="number"
+      name="PowerLevel" 
+      [(ngModel)]='newLevel.PowerLevel'
+      >
+     <button *ngIf="powerForm.valid" type="submit" value="Submit Power">Submit Power</button>
+     <button *ngIf="!powerForm.valid " value="Submit Power">No Letters && Do Not Exceed 100, Please!</button>
+     
+     </form>
+
+   
+<div class="row">
+  
+  <div class="lildiv"><app-human [HumanPower]="ThePower"></app-human></div>
+  <div class="lildiv"><app-saiyan-component [SaiyanPower]="ThePower * 10"></app-saiyan-component></div>
+    <div class="lildiv"><app-super-saiyan-component [SuperSaiyanPower]="ThePower * 90"></app-super-saiyan-component></div>
+</div>
+
+<div class="row">
+    <div class="lildiv"><app-super-saiyan-two-component [SuperSaiyanTwoPower] ="ThePower * 150"></app-super-saiyan-two-component></div>
+      <div class="lildiv"><app-super-saiyan-three-component [SuperSaiyanThreePower] ="ThePower * 250"></app-super-saiyan-three-component></div>
+        <div class="lildiv"><app-super-saiyan-four-component [SuperSaiyanFourPower] ="ThePower * 500"></app-super-saiyan-four-component></div>
+  
+</div>
+   
+  </fieldset>
+ </div>

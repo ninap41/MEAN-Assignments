@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Human } from './human';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Power Level!';
+  newLevel = new Human();
+  ThePower : number = null;
+
+  onSubmit(){
+
+    this.ThePower= this.newLevel.PowerLevel;
+
+  }
 }
