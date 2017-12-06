@@ -7,13 +7,14 @@
       <input
       placeholder="Enter Between 1-100"
       required 
-      max="100"
+ 
       type="number"
       name="PowerLevel" 
       [(ngModel)]='newLevel.PowerLevel'
       >
+      <!-- <p *ngIf="!PowerLevel.errors?.max">Do Not Exceed 100 Characters, Please!</p> -->
      <button *ngIf="powerForm.valid" type="submit" value="Submit Power">Submit Power</button>
-     <button *ngIf="!powerForm.valid " value="Submit Power">No Letters && Do Not Exceed 100, Please!</button>
+     <button *ngIf="!powerForm.valid " value="Submit Power">No Letters, Please!</button>
      
      </form>
 

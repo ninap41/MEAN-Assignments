@@ -1,0 +1,24 @@
+
+
+
+    <h3>Generate Sequence 3 (Beta)</h3>
+
+
+      <p>*Sums Every Number in Array*</p>
+      <button (click)="sumNum()" > Sum Method</button>
+
+
+<BR><BR>
+<div style="text-align:center">
+    <ul>
+        <h2>Number Sequence (Beta)</h2>
+    <p style="width:2rem;display:inline-block" *ngFor="let number of numbers; let idx=index"> 
+      {{number}}  
+      <span *ngIf="idx != numbers.length-1">,</span>
+    </p>
+
+      <BR>
+
+      <span *ngIf="sum > 0">SUM: {{sum}}</span>
+    </ul>
+</div>
