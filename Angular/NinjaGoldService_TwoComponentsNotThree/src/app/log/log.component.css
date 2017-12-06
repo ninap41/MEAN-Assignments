@@ -1,0 +1,16 @@
+fieldset{
+    margin-left:2.2rem;
+    width:40rem;
+    height: 20rem;
+    overflow: scroll;
+    
+    vertical-align: top;
+}
+legend{
+    font-size: 3rem;
+}
+
+ul{
+    margin: -2rem;
+    padding: 2rem;
+}

@@ -17,9 +17,7 @@ export class BetaComponent implements OnInit {
 }  
 
 sumNum(sum){
-  
   this.sum = this._dataService.sumNumber(this.sum);
-  console.log(this.sum);
 }
 
 differenceNum(){

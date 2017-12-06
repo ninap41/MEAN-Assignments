@@ -1,0 +1,35 @@
+<fieldset>
+  <legend>Places</legend>
+    <div class="divy">
+      <h3>Farm</h3>
+      <p>Earns 2-5 gold</p>
+      <button (click)="farmGold()" (click)="$event">Farm!</button>
+    </div>
+
+
+    <div class="divy">
+        <h3>Cave</h3>
+        <p>Earns 5-10 gold</p> 
+        <button  (click)="caveGold()" (click)="$event">Cave!</button>  
+    </div>
+
+
+    <div class="divy">
+        <h3>Casino</h3>
+        <p>Can Earn/Lose up to 100 gold</p>
+        <button (click)="casinoGold()" (click)="$event">Casino!</button>
+    </div>
+
+
+    <div class="divy">
+        <h3>House</h3>
+        <p>Earns 7-15 gold</p>
+        <button (click)="houseGold()"  (click)="$event">House!</button>
+    </div>
+<div style="height:6rem; overflow: scroll;">
+<span *ngFor="let logs of log">
+  <BR>
+  {{logs}}<BR>
+</span>
+</div>
+</fieldset>

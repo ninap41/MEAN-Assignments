@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DataService {
   numbers: number[] = [1, 2, 3,5,6,7,8,9, 10];
-  sumnum: number =0;
+  // sumnum: number =0;
 
   constructor() { }
   retrieveNumbers(): number[]
