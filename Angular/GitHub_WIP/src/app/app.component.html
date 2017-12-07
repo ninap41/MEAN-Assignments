@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+<form  (submit)="getScore()" >
+  GitHub Username: <input type="text" 
+  placeholder="Enter Username" 
+  required
+  name='gitusername' 
+  [(ngModel)]='username' 
+  #gitusername='ngModel'>
+  <br><br>
+  <input type="submit" value="Get My Score">
+</form>
+<div style="width: 20rem; margin-left: 43%;">
+    <h2>{{username}}</h2>
+  <h5 *ngIf="!dontExist"  style="color:green">{{message}}</h5>
+  <h5 *ngIf="dontExist ==true" style="color:red">{{message}}</h5>
+  <h2 *ngIf="!dontExist">{{score}}</h2>
+  <h2 *ngIf="score < 20" style="color:orange">Needs a little work...</h2> 
+  <h2 *ngIf="score < 50 && score > 20" style="color:orange">A decent start!</h2> 
+  <h2 *ngIf="score < 50 && score > 20" style="color:orange">A decent start!</h2>
+  <h2 *ngIf="score <100 && score > 50" style="color:purple">Doing good!</h2>
+  <h2 *ngIf="score <200 && score > 100" style="color:green">Great Job!</h2>
+  <h2 *ngIf="score > 200" style="color:blue; font-size: 2rem;">GitHub Elite!</h2>
+
+
+</div> 
