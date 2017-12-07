@@ -12,7 +12,6 @@ export class AppComponent {
   gold: number = 0;
   myGold = 0;
   title = 'Ninja Gold Service';
-  myLog  =[];
   log=[];
   
   constructor(private _dataService: DataService) { }
@@ -27,7 +26,7 @@ export class AppComponent {
     amount = this._dataService.retrieveGold()
     log = this._dataService.retrieveLog()
     this.myGold += amount;
-    this.myLog.push(log);
-    console.log("~~~~~~~~~~~~~~~~~~~" + this.myLog)
+    // this.myLog.push(log);
+    console.log("~~~~~~~~~~~~~~~~~~~" + log)
   }
 }

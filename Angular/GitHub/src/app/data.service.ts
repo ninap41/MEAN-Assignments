@@ -5,11 +5,6 @@ import { HttpClient} from '@angular/common/http'; //Client Module
 
 import 'rxjs/add/operator/map';    //RXJS operator Reactive. Same as Observable
 import 'rxjs/add/operator/toPromise'; //eventual result of an asynchronous operation "TOPROMISE".
-
-// import 'rxjs/add/operator/map';
-// import 'rxjs/add/operator/toPromise';
-// import { BehaviorSubject } from ‘Rxjs’;    //THIS DID NOT WORK!!!
-
   
 @Injectable()
 export class DataService {

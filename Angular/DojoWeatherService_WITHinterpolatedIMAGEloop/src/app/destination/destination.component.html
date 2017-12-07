@@ -1,0 +1,30 @@
+<script>
+
+</script>
+
+<BR><BR>
+  <fieldset  *ngIf="weather.name" style="width: 90rem; height: 33rem; margin-left: 20%; font-size: 3rem;">
+      <div style="width:40%; display: inline-block; vertical-align: top;">
+
+      <legend> {{weather.name}} </legend>
+    <!-- {{ weather | json }} -->
+    <p>Humidity: {{humidity}} °F </p>
+    <p>Current: {{ avg }}°F </p>
+    <p>Temp(High): {{high}} </p>
+    <p>Temp (Low):  {{low}}°</p>
+    <p>Status: {{ status | uppercase}}</p>
+
+  </div>
+  <div *ngFor="let image of CityList" style="width:50%; display: inline-block; vertical-align: top;margin-top: 5%;">
+     <span style="margin:0px auto;" *ngIf="image == weather.name" >
+       <img [src]=ImagePath> <!-- I MADE AN IMAGE LOOP! I"M SO PROUD -->
+      </span>
+  </div>
+  <fieldset *ngIf="!weather.name" style="width: 45rem; height: 33rem; margin-left: 30%; font-size: 3rem;">
+]
+<p>Find out the weather at these Dojo filled cities!</p>
+
+    </fieldset>
+
+
+    

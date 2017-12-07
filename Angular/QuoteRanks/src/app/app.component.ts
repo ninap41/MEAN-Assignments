@@ -12,8 +12,7 @@ export class AppComponent {
   newQuote = new Quotes();
   valid= false;
   quoteslist = [];
-  
-  alist= ['puppies','cats']
+  alist= ['puppies','cats', "turtles", "cuddly animals"]
   
 
   onSubmit(){
