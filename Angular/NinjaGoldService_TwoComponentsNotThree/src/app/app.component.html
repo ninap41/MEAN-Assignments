@@ -3,20 +3,21 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-<app-farm-cave-cas-house [myLogs]="log" (myEvent)="invokeRetrieve($event)"  (myEvent2)="invokeLOGretrieve($event)"></app-farm-cave-cas-house>
+<app-farm-cave-cas-house (myEvent)="invokeRetrieve($event)"></app-farm-cave-cas-house>
 <div class="inline">
-<app-log ></app-log>
+<app-log [myLogs]="myLog"></app-log>
 </div>
 <div class="inline">
 <fieldset>
   {{gold}}
     <legend>Gold</legend>
-   <h4 *ngIf="myGold ===0" style="margin-top:4rem;">You Have No Gold :(</h4>
+   <h4 *ngIf="myGold === 0" style="margin-top:4rem;">You Have No Gold :(</h4>
    <h4 *ngIf="myGold < 0" style="margin-top:4rem;"> {{myGold}}...Uh,Oh Deficit Gold!</h4>
-   <h4 *ngIf="myGold === 9000" style="margin-top:4rem;">{{myGold}}, You're PowerLevel is INSANE </h4>
-   <h4 *ngIf="myGold > 0 " style="margin-top:4rem;">{{myGold}} Gold! </h4>
-   <h4 *ngIf="myGold > 500 && myGold < 1000" style="margin-top:4rem;"> So much Gold.... </h4>
-   <h4 *ngIf="myGold > 1000 && myGoldmy < 9000" style="margin-top:4rem;"> Okay. Now This is ridiculous </h4>
+   <h4 *ngIf="myGold > 0 && myGold < 200" style="margin-top:4rem;">{{myGold}} Gold! </h4>
+   <h4 *ngIf="myGold > 200 && myGold < 500" style="margin-top:4rem;">{{myGold}}, That's Alot of Gold</h4>
+   
+   <h4 *ngIf="myGold > 500 && myGold < 1000" style="margin-top:4rem;"> {{myGold}} So much Gold.... </h4>
+   <h4 *ngIf="myGold > 1000 && myGold < 9000" style="margin-top:4rem;"> Okay. Now This is ridiculous... {{myGold}} Gold? Go to the Casino! </h4>
    <h4 *ngIf="myGold > 9000" style="margin-top:4rem;"> Over 9000.... bet your PowerLevel is INSANE... </h4>
 
    

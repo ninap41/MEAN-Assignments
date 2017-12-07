@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { GoldService } from '../gold.service';
+import { DataService } from '../gold.service';
 
 
 @Component({
@@ -11,13 +11,12 @@ export class FarmCaveCasHouseComponent implements OnInit {
   gold: number = 0;
   log =[];
   where : String= "";
-  @Input() myLogs;
   @Output() myEvent= new EventEmitter; //from the child
   @Output() myEvent2= new EventEmitter; //from the child
   
   // @Output() myEvent2= new EventEmitter; 
   
-  constructor(private _dataService: GoldService) { }
+  constructor(private _dataService: DataService) { }
 
   ngOnInit() {
   this.gold = this._dataService.retrieveGold(); //redfeingint he empty var at the top with our DATA
@@ -29,47 +28,48 @@ export class FarmCaveCasHouseComponent implements OnInit {
     this.where="Farm"
     amount= Math.floor(Math.random() * (5-2) + 2);
     this.gold = this._dataService.sumGold(amount)
-    this.myEvent.emit(amount)  
- 
-    this.log.push("Retrieved " + amount + " gold from the " + this.where + "!")
-    this.myEvent2.emit(this.log)  
-    console.log(this.log)
+    this.myEvent.emit(amount) //HOW IS LOG GETTING OVER? IDK! BUT IT DOES.  
+    this.myEvent2.emit(this.log.push("Retrieved " + amount + " gold from the " + this.where + "!"))  
     console.log("GET THAT DAT FARM GOLD");
 
   }
 
-  caveGold(event,amount){
+  caveGold(event,amount,log){
     this.where="Cave"
     amount= Math.floor(Math.random() * (10-5) + 5);
     this.gold = this._dataService.sumGold(amount)
     this.myEvent.emit(amount)
-    this.log.push("Retrieved " + amount + " gold from the " + this.where + "!")
+    this.myEvent2.emit(this.log.push("Retrieved " + amount + " gold from the " + this.where + "!"))      
+    // this.log.push("Retrieved " + amount + " gold from the " + this.where + "!")
     console.log("GET THAT DAT CAVE GOLD");
     
   }
 
-  casinoGold(event, amount){
+  casinoGold(event, amount, log){
     this.where="Casino"
     amount= Math.floor(Math.random()*200) - 100;
     this.gold = this._dataService.sumGold(amount)
     this.myEvent.emit(amount)
-    console.log("GET THAT DAT SINO GOLD");
+    console.log("GET THAT DAT CASINO GOLD");
     if(amount < 0){
-    var log = this.log.push("Lost " + amount + " gold from the " + this.where + "!") 
+    this.myEvent2.emit(this.log.push("Lost " + amount + " gold from the " + this.where + "!"))  
+    // this.log.push("Lost " + amount + " gold from the " + this.where + "!") 
     }
     else {
-      this.log.push("Retrieved " + amount + " gold from the " + this.where + "!")
+      this.myEvent2.emit(this.log.push("Retrieved " + amount + " gold from the " + this.where + "!"))  
+      // this.log.push("Retrieved " + amount + " gold from the " + this.where + "!")
     }
     
   }
 
-  houseGold(event, amount){
+  houseGold(event, amount, log){
     this.where="House"
     amount= Math.floor(Math.random() * (15-7) + 7);
     this.gold = this._dataService.sumGold(amount)
     this.myEvent.emit(amount)
     console.log("GET THAT DAT HOUSE GOLD");
-    this.log.push("Retrieved " + amount + " gold from the " + this.where + "!")
+    this.myEvent2.emit(this.log.push("Retrieved " + amount + " gold from the " + this.where + "!"))      
+    // this.log.push("Retrieved " + amount + " gold from the " + this.where + "!")
   }
 
  

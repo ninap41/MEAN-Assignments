@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class GoldService {
+export class DataService {
   gold: number = null;
-  log : Array<number|string> =[];
+  log : Array<string>=[];
+
   constructor() { }
 
   retrieveGold(): number{
     return this.gold;
   }
 
-  retrieveLog():  Array<number|string> {
+  retrieveLog():  Array<string>{
     return this.log;
   }
 

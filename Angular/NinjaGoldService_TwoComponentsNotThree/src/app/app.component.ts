@@ -1,5 +1,5 @@
 import { Component,Input,EventEmitter,Output } from '@angular/core';
-import { GoldService } from './gold.service';
+import { DataService } from './gold.service';
 
 
 @Component({
@@ -12,9 +12,10 @@ export class AppComponent {
   gold: number = 0;
   myGold = 0;
   title = 'Ninja Gold Service';
-  log  =[];
+  myLog  =[];
+  log=[];
   
-  constructor(private _dataService: GoldService) { }
+  constructor(private _dataService: DataService) { }
 
   ngOnInit() {
   this.gold = this._dataService.retrieveGold(); //redfeingint he empty var at the top with our DATA
@@ -22,22 +23,11 @@ export class AppComponent {
   
 }
 
-  invokeRetrieve(event, amount :number, who){
-    
+  invokeRetrieve(event, amount :number,log){ //HOW DOES THIS GET EVERYTHING!?  Apprently data service?
     amount = this._dataService.retrieveGold()
-
+    log = this._dataService.retrieveLog()
     this.myGold += amount;
-
+    this.myLog.push(log);
+    console.log("~~~~~~~~~~~~~~~~~~~" + this.myLog)
   }
-
-  
-
-invokeLOGretrieve(event, log){
-  log = this._dataService.retrieveLog()
-
-
-}
-
-
-
 }
