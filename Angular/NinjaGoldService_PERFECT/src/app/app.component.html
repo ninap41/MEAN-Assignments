@@ -4,8 +4,11 @@
     Welcome to {{ title }}!
   </h1>
 <app-farm-cave-cas-house (myEvent)="invokeRetrieve($event)"></app-farm-cave-cas-house>
+
 <div class="inline">
+
 <app-log [myLogs]="myLog"></app-log>
+
 </div>
 <div class="inline">
 <fieldset>
@@ -15,7 +18,6 @@
    <h4 *ngIf="myGold < 0" style="margin-top:4rem;"> {{myGold}}...Uh,Oh Deficit Gold!</h4>
    <h4 *ngIf="myGold > 0 && myGold < 200" style="margin-top:4rem;">{{myGold}} Gold! </h4>
    <h4 *ngIf="myGold > 200 && myGold < 500" style="margin-top:4rem;">{{myGold}}, That's Alot of Gold</h4>
-   
    <h4 *ngIf="myGold > 500 && myGold < 1000" style="margin-top:4rem;"> {{myGold}} So much Gold.... </h4>
    <h4 *ngIf="myGold > 1000 && myGold < 9000" style="margin-top:4rem;"> Okay. Now This is ridiculous... {{myGold}} Gold? Go to the Casino! </h4>
    <h4 *ngIf="myGold > 9000" style="margin-top:4rem;"> Over 9000.... bet your PowerLevel is INSANE... </h4>

@@ -40,7 +40,7 @@ export class FarmCaveCasHouseComponent implements OnInit {
 
       }
       else if(place === 'Casino') {    //CHANGE
-          amount= Math.floor(Math.random()*200) - 100;
+        amount= Math.floor(Math.random()*200) - 100;
       } else if(place === 'House') {
           num1 = 15;
           num2 = 7;
