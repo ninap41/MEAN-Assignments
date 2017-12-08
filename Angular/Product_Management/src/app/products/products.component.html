@@ -1,0 +1,14 @@
+<fieldset>
+  <legend>Products</legend>
+  <div *ngFor="let product of ProductList; let idx = index">
+    <span>{{ product.imgURL |json}}</span>
+  <span><b>{{ product.productname}}</b> 
+  </span>
+  <span> $ {{product.price}} </span>
+  <a [routerLink]="['editproduct']">Edit Product</a>
+</div>
+<span *ngIf="ProductList.length == 0">There Are No Current Products Available :(</span>
+</fieldset >
+
+
+<!-- <a style="font-size:2.5rem; text-decoration:none;" [routerLink]="['editproduct/']">Edit Product</a> | -->
