@@ -1,7 +1,7 @@
 <fieldset>
   <legend>Products</legend>
   <div *ngFor="let product of ProductList; let idx = index">
-    <span>{{ product.imgURL |json}}</span>
+    <span><img [src]="product.imgURL">{{ product.imgURL |json}}</span>
   <span><b>{{ product.productname}}</b> 
   </span>
   <span> $ {{product.price}} </span>

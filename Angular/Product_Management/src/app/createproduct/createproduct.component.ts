@@ -33,7 +33,6 @@ ProductList : any =[]
     this.ProductList.push(this.newProduct);
     this.newProduct = new Product();
     console.log(this.newProduct)
-    // this._dataService.createProduct(this.newProduct);
-  
+    this._dataService.createProduct(this.newProduct);
   }
 }

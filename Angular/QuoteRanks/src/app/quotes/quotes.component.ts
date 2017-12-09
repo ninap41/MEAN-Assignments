@@ -20,7 +20,6 @@ orderBy: 'myQoutes.vote'
   constructor() { }
 
   delQuoteP(event,idx){
-    // this.myQuotes.splice(idx, 1)
     this.myEvent.emit(idx);//index of quote
   }
 

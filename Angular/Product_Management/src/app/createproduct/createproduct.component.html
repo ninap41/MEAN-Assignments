@@ -30,7 +30,7 @@
 Image Upload:
     <input 
     type="file" 
-    name="image" 
+    name="imageURL" 
     required 
     [(ngModel)]="newProduct.imageURL"
     #imageURL='ngModel'
@@ -39,6 +39,6 @@ Image Upload:
       <button *ngIf='productForm.valid' type="submit" value="Create">Create</button>
     </form>
 </fieldset >
-<!-- 
+
 {{ productForm.valid | json }}
-{{ ProductList | json}} -->
+{{ ProductList | json}}
