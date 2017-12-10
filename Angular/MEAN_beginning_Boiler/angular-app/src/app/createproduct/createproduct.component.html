@@ -42,7 +42,7 @@
   <div *ngIf='price.errors'>
     <p *ngIf='!valid && price.errors.required'>Price is required</p>
 </div>  
-      <button *ngIf='!productForm.valid' type="submit" value="Create">Please Fill Out Valid Forms!</button>
+      <button [disabled]="!productForm.valid"  type="submit" value="Create">Please Fill Out Valid Forms!</button>
       <button *ngIf='productForm.valid' type="submit" value="Create">Create</button>
     </form>
 </fieldset >

@@ -7,7 +7,6 @@ var User = mongoose.model('User');
 module.exports = {
 
   show: function(req, res) {
-  
     User.find({}, function(err, users) {
       console.log(req.session.currUser)
       res.render('users', {users: users, logged_user:req.session.currUser});
@@ -25,6 +24,8 @@ module.exports = {
     user.save() 
     req.session.user = user
     // this._dataService.currentUser(req.session.user);
+    res.render('user', {LoggedUser: req.session.user});
+    
     }
   },
 

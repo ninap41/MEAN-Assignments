@@ -9,11 +9,10 @@
           MadeBy:  -{{product._user}}<BR>
 
           <button (click)="deleteProduct(product)">delete</button>
-
-
-           </p>
-  
-
+    </p>
+  </span>
+  <span *ngIf="ProductList.length === 0">
+    *There are no products :(
   </span>
 </fieldset >
 

@@ -11,6 +11,8 @@ import { ProductsComponent } from './products/products.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CreateproductComponent } from './createproduct/createproduct.component';
 import { EditproductComponent } from './editproduct/editproduct.component';
+import { RegComponent } from './reg/reg.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { EditproductComponent } from './editproduct/editproduct.component';
     HomepageComponent,
     CreateproductComponent,
     EditproductComponent,
+    RegComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

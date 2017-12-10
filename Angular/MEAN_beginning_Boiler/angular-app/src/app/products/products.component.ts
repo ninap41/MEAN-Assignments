@@ -19,7 +19,9 @@ currentUser = new User;
   constructor(private _dataService: DataService,
   private _router: Router)
   {
-    this.currentUser = this._dataService.returnUser();
+    // this.currentUser = this._dataService.returnUser()
+    // .then(data => this.currentUser = data.results)
+    // console.log(this._dataService.returnUser()); 
     this._dataService.retrieveProducts()
     .then(data => this.ProductList = data.results)
     console.log(this._dataService.retrieveProducts());  
@@ -29,10 +31,6 @@ currentUser = new User;
     this._dataService.retrieveProducts();
   }
 
-  // getAllProducts(){
-  //   this._dataService.retrieveProducts()
-  //   .then(data =>this.ProductList = data)
-  // }
 
 
   deleteProduct(product){

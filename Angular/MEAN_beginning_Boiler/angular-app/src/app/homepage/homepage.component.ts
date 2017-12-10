@@ -37,7 +37,7 @@ register(){
   //     console.log("made it to register")
   //     this.user = new User();
   //     this.currentUser = data.user;
-  //     this._dataService.SessEm(this.currentUser);
+      this._dataService.SessEm(this.currentUser);
   //   } else {
       this.user = new User();
       // res.json("registration failed")
@@ -45,6 +45,10 @@ register(){
   //   }
   // });
   this._router.navigateByUrl('/products')
+  
+}
+
+login(){
   
 }
 

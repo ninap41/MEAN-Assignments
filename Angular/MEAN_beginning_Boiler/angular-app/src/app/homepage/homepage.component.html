@@ -1,4 +1,10 @@
 <fieldset>
+  <legend>Home</legend>
+<h4>Welcome to the home page</h4>
+
+</fieldset >
+
+<fieldset>
   <legend>Register</legend>
 
   {{currentUser | json}}
@@ -101,13 +107,46 @@ Confirm Password: <input
 </form>
 </div>
 
+</fieldset >
 
-<h5 *ngFor="let userList of users">
+
+<fieldset >
+    <legend>Login</legend>
+    <form #logForm="ngForm" (submit)="login()">
+       
+    Email: <input type="email"
+    name="email"
+    required
+    minlength="4" 
+    [(ngModel)]="user.email"
+    #email="ngModel"  
+    > <br><br>
+    <div *ngIf='email.errors'>
+        <p *ngIf='!valid && email.errors.required  && email.dirty'>Email is required</p>        
+        <p *ngIf='!valid && email.errors.minlength && email.dirty'>email must have at least 7 chars and @</p>
+        
+    </div>
+
+    Password: <input type="password"
+    name="password" 
+    required
+    [(ngModel)]="user.password"
+    #password = "ngModel"
+    ><br><br>
+    <div *ngIf='password.errors'>
+        <p *ngIf='!valid && password.errors.required  && password.dirty'>Password is required</p>
+    </div>
+    <button [disabled]="!logForm.valid"  style="border:none;" *ngIf='!logForm.valid'>Make sure your fields are valid!</button>
+    <button *ngIf='logForm.valid' type="submit" value="Login">Login</button>
+</form>
+
+
+<!-- <h5 *ngFor="let userList of users">
   <div class="align">
     <li>{{userList.firstName}}</li>
     <li>{{userList.lastName}}</li>
     <li>{{userList.email}}</li>
   </div>
-  </h5>
+  </h5> -->
 {{user | json}}
 </fieldset >

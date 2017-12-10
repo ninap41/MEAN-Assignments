@@ -15,10 +15,14 @@ export class CreateproductComponent implements OnInit {
 newProduct = new Product();
 valid= false;
 ProductList =[]
+currentUser;
 
 
 constructor(private _dataService: DataService,
   private _router: Router ) { 
+
+    this.currentUser = this._dataService.returnUser();  
+    
 }
 
   ngOnInit() {
