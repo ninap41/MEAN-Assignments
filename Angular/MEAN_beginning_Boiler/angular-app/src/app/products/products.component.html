@@ -1,0 +1,20 @@
+<fieldset>
+  <legend>Products</legend>
+  
+  <span *ngFor="let product of ProductList">
+    <p> id: <b>{{product._id}}</b><BR>
+      Name: <b>{{product.productname}}</b><BR>
+         Description:  - "{{product.description}}"<BR>
+         Price:  - $ {{product.price}}.00<BR>
+          MadeBy:  -{{product._user}}<BR>
+
+          <button (click)="deleteProduct(product)">delete</button>
+
+
+           </p>
+  
+
+  </span>
+</fieldset >
+
+

@@ -14,21 +14,15 @@ export class AppComponent {
   valid = false;
   message = "";
 
-  onSubmit(){
-// console.log(validation);
-    // if(validation === false){
-    //   this.valid = validation;
-    //   this.message ="Something Happened. Please Try Again"
-    // }
-    // else{
-    //   this.valid = true;
-    // }
-  
-     
+  Register(){     
       this.valid = true;
       this.users.push(this.user);
       this.user = new User();
     
     }
+
+  Login(){
+    
+  }
   }
 
