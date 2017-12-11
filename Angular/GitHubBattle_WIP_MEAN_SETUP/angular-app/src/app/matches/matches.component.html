@@ -1,0 +1,14 @@
+<fieldset>
+  <legend>Rankings</legend>
+  
+  <span *ngFor="let battle of BattleLog">
+    <p> username: <b>{{battle.username}}</b><BR>
+      score: <b>{{battle.score}}</b><BR>
+       
+    </p>
+  </span>
+  <span *ngIf="BattleLog.length === 0">
+    *There are no battles :(
+  </span>
+</fieldset >
+
