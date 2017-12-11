@@ -1,0 +1,19 @@
+<fieldset>
+  <legend>Products</legend>
+  
+  <span *ngFor="let product of ProductList">
+    <p> id: <b>{{product._id}}</b><BR>
+        Name: <b>{{product.productname}}</b><BR>
+        Description:  - "{{product.description}}"<BR>
+        Price:  - $ {{product.price}}.00<BR>
+        MadeBy:  -{{product._user}}<BR>
+    <button  [routerLink]="['products/', product._id]">Update</button>
+    <button (click)="deleteProduct(product)">Delete</button>
+    </p>
+  </span>
+  <span *ngIf="ProductList.length === 0">
+    *There are no products :(
+  </span>
+</fieldset >
+
+

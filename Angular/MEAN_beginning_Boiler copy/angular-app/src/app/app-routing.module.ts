@@ -9,17 +9,16 @@ import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {path: '', component: HomepageComponent, pathMatch: 'full' },
-  { path: 'products', 
-  component: ProductsComponent
-  // ,
-  // children: [
-  //   {path: 'pro', redirectTo: 'products', pathMatch: 'full'}
-  //   ]
-   },
-  { path: 'createproduct', 
-  component: CreateproductComponent },
-  { path: 'editproduct', 
-  component: EditproductComponent },
+  { path: 'products', component: ProductsComponent, children:
+  [
+    {path: '', redirectTo: 'products/product._id' , pathMatch: 'full'},
+    {path: 'products/:id', component: EditproductComponent}
+  ]
+  },
+  
+  { path: 'success', component: ProductsComponent},
+  { path: 'createproduct', component: CreateproductComponent },
+  { path: 'editproduct', component: EditproductComponent },
 
   //NEW STUFF
   { path: 'login', component: HomepageComponent},

@@ -13,9 +13,10 @@ export class DataService {
 
 Product: string = null;
 ProductList: any[] = [];
-currentUser:  User;
+currentUser = new User;
 
  constructor(private _http: Http) {
+
   }
 
 
@@ -27,12 +28,9 @@ currentUser:  User;
 }
 
 SessEm(user: User){
-  if(user != null){
-    this.currentUser;
-    this.currentUser.firstName = user.firstName
-    console.log(user.firstName);
-    return this.currentUser
-    }
+    this.currentUser = user
+    console.log(user);
+    return this.currentUser 
   }
 
 
@@ -65,11 +63,13 @@ retrieveProducts(){
     return this._http.post('/api/addProduct', product)
     .map(response => response.json())
     .toPromise();
-    //previously a local list now DB
-    //return this.ProductList.push(product);
 }
 
-
+updateProduct(product){
+  return this._http.post('/api/updateProduct', product)
+  .map(response => response.json())
+  .toPromise();
+}
 removeProduct(product){
   return this._http.post('/api/deleteProduct', product)
   .map(response => response.json())
@@ -77,8 +77,6 @@ removeProduct(product){
 }
 
 
-  logOutSES(){
 
-  }
 
 }

@@ -38,6 +38,10 @@ module.exports = function(app) {
         products.delete(req, res);
     });
 
+    app.get('/api/updateProduct', function (req, res){
+        products.update(req, res);
+    });
+
     ///END OF PRODUCT STUFF
 
 

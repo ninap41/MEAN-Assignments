@@ -34,5 +34,17 @@ module.exports = {
                 res.json({good: ''})
             }       
     });
-}
+},
+
+
+
+update: function(req,res) {
+    Product.update({_id:req.body._id}, function(err){ //body not params
+        if (err){
+            res.json({error: ''})
+        } else {
+            res.json({good: ''})
+        }       
+    });
+    }
 }

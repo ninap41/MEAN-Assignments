@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { Product } from '../product';  //INPUT MODEL
 import { Router } from '@angular/router'
 import { RouterModule, Routes } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-createproduct',
@@ -26,15 +27,16 @@ constructor(private _dataService: DataService,
 }
 
   ngOnInit() {
-    // this._dataService.retrieveProducts()
-    // .then(data => this.ProductList = data.results)
-    // console.log(this.ProductList);  
+    this._dataService.retrieveProducts()
+    .then(data => this.ProductList = data.results)
+    console.log(this.ProductList);  
 }
 
 onSubmit(){
     this._dataService.createProduct(this.newProduct)
     .then(data => this._router.navigateByUrl('/products'));
     console.log(this.newProduct);
+    this._router.navigateByUrl('/products')
 
    // if you want a local version/ non DB
     // this._dataService.pushProduct(this.newProduct);    

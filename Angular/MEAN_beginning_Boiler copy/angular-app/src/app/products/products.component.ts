@@ -4,6 +4,7 @@ import { Product } from '../product';  //INPUT MODEL
 import { User } from '../user';  
 import { Router } from '@angular/router'
 import { RouterModule, Routes } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -13,15 +14,12 @@ import { RouterModule, Routes } from '@angular/router';
 export class ProductsComponent implements OnInit {
 
 // newProduct = new Product();
-ProductList : any;
-products: any;
+ProductList= [];
 currentUser = new User;
   constructor(private _dataService: DataService,
   private _router: Router)
   {
-    // this.currentUser = this._dataService.returnUser()
-    // .then(data => this.currentUser = data.results)
-    // console.log(this._dataService.returnUser()); 
+
     this._dataService.retrieveProducts()
     .then(data => this.ProductList = data.results)
     console.log(this._dataService.retrieveProducts());  
@@ -43,11 +41,36 @@ currentUser = new User;
         console.log(this.ProductList)
         console.log(product)
         this._dataService.retrieveProducts()
-        this._router.navigateByUrl('/')
+        .then(data => this.ProductList = data.results)
+        console.log(this._dataService.retrieveProducts()); 
+        this._router.navigateByUrl('/products')
       }
     })
    
+    this._router.navigate(['/success'])
     
   }
 
+
+
+  // updateProduct(product){
+  //   this._dataService.removeProduct(product)
+  //   .then(data => {
+  //     if(data.error){
+  //       console.log('delete error')
+  //     }
+  //     else{
+  //       console.log(this.ProductList)
+  //       console.log(product)
+  //       this._dataService.retrieveProducts()
+  //       .then(data => this.ProductList = data.results)
+  //       console.log(this._dataService.retrieveProducts()); 
+  //       this._router.navigateByUrl('/products')
+  //     }
+  //   })
+   
+  //   this._router.navigate(['/success'])
+    
+  // }
+  
 }

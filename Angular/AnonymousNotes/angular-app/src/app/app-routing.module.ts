@@ -8,8 +8,6 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: SuccessComponent },
   { path: 'success', pathMatch: 'full', component: SuccessComponent},
   { path: 'products', pathMatch: 'full', component: ProductsComponent},
- 
-
 ];
 
 @NgModule({

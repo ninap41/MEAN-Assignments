@@ -20,6 +20,9 @@ const routes: Routes = [
   { path: 'product/editproduct', 
   pathMatch: 'full',
   component: EditproductComponent },
+  { path: 'product/editproduct/:id', 
+  pathMatch: 'full',
+  component: EditproductComponent },
   // { path: 'products', 
   // component: AppComponent, 
   // children: [

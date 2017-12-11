@@ -1,15 +1,25 @@
+
+
 <style>
   p {color: red}
   </style><fieldset>
-  <legend>Create New Product</legend>
-  <form (submit)="onSubmit()" #productForm="ngForm">
+
+
+
+
+
+    <!-- <div *ngIf="newProduct != null"> -->
+
+<fieldset>
+  <legend>Update {{ product}}</legend>
+  <form (submit)=" editProduct()" #updateForm="ngForm">
     Product Name: 
     <input 
     type="text" 
     name="productname" 
     required 
     minlength="4"
-    [(ngModel)]="newProduct.productname"
+    [(ngModel)]="product.productname"
     #productname='ngModel'
  >   <BR><BR>
   <div *ngIf='productname.errors'>
@@ -22,8 +32,9 @@
   type="text" 
   name="description" 
   required 
+  trim = true
   minlength="8"
-  [(ngModel)]="newProduct.description"
+  [(ngModel)]="product.description"
   #description='ngModel'
 >   <BR><BR>
 <div *ngIf='description.errors'>
@@ -36,16 +47,14 @@
     type="number" 
     name="price" 
     required 
-    [(ngModel)]="newProduct.price"
+    [(ngModel)]="product.price"
     #price='ngModel'
  >  <BR><BR>
   <div *ngIf='price.errors'>
     <p *ngIf='!valid && price.errors.required'>Price is required</p>
 </div>  
-      <button [disabled]="!productForm.valid"  type="submit" value="Create">Please Fill Out Valid Forms!</button>
-      <button *ngIf='productForm.valid' type="submit" value="Create">Create</button>
+      <button [disabled]="!updateForm.valid" type="submit" value="Update">Update</button>
     </form>
 </fieldset >
+<!-- </div> -->
 
-{{ productForm.valid | json }}
-{{ ProductList | json}}
