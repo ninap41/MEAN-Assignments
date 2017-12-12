@@ -23,15 +23,15 @@ export class AppComponent {
     console.log(this.username);
     this.promise = this._dataService.getUser(this.username); ///get promise from dataservice the way we'd get USers
       this._dataService.getUser(this.username)
-	    .then(user => {
-	        if (user.id){
-            console.log(user.id);
+	    .then(username => {  //  return this.http.get(`https://api.github.com/users/${ username }`) 
+	        if (username.id){
+            console.log(username.id);
             console.log(this.username);
-            this.score = user.public_repos + user.followers + user.following;
-            console.log(user.public_repos);
-            console.log(user.followers);
-            console.log(user.following);
-            this.message = `is a user! They have ${user.public_repos} public repositiories, ${user.followers} followers, and are following ${user.following} developers.  Thier GitHub Score is...`
+            this.score = username.public_repos + username.followers + username.following;
+            console.log(username.public_repos);
+            console.log(username.followers);
+            console.log(username.following);
+            this.message = `is a user! They have ${username.public_repos} public repositiories, ${username.followers} followers, and are following ${username.following} developers.  Thier GitHub Score is...`
             this.dontExist = false;
             
           }
@@ -39,7 +39,7 @@ export class AppComponent {
             this.dontExist = true;
             this.score = null;
           
-          console.log(user)
+          console.log(username)
 
 	      })
         .catch(err => this.message = 'Person not found');
