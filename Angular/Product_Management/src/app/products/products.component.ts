@@ -9,13 +9,13 @@ import { Product } from '../product';  //INPUT MODEL
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-
+ImagePath='';
 // newProduct = new Product();
 ProductList : any =[]
   constructor(private _dataService: DataService)
   {
     this.ProductList = this._dataService.retrieveProducts(); //redfeingint he empty var at the top with our DATA
-
+    
  }
 
   ngOnInit() {
@@ -23,4 +23,10 @@ ProductList : any =[]
   }
   
 
+
+  delete(idx){
+    this.ProductList.splice(idx,1);
+    console.log(this.ProductList)
+
+  }
 }

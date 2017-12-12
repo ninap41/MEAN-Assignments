@@ -160,6 +160,6 @@ console.log( "\n" + Nina.discard(deck));
 console.log( "\n" + Nina.discard(deck));
 console.log( "\n" + Nina.discard(deck));
 console.log( "\n" + Nina.draw(deck));
-console.log( "\n" + Nina.did_I_win());
+// console.log( "\n" + Nina.did_I_win());
 
 

@@ -23,7 +23,6 @@ ProductList : any =[]
     this.ProductList = this._dataService.retrieveProducts(); //redfeingint he empty var at the top with our DATA
     // this.log = this._dataService.retrieveLog(); //redfeingint he empty var at the top with our DATA
     this.valid= false;
-    this.ImagePath = `${this.newProduct[2]}`
   }
 
   onSubmit(product){

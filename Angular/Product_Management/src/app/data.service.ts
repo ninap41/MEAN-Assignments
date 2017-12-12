@@ -3,16 +3,17 @@ import { Http } from '@angular/http'; //Other Client Module?
 import { HttpClient} from '@angular/common/http'; //Client Module
 import 'rxjs/add/operator/map';    //RXJS operator Reactive. Same as Observable
 import 'rxjs/add/operator/toPromise'; //eventual result of an asynchronous operation "TOPROMISE".
+import { Product } from './product';  //INPUT MODEL
 
 @Injectable()
 export class DataService {
-  Product: string = null;
+ 
  ProductList: any[] = [];
-
+updatedProduct: Product;
   constructor() { }
 
-  retrieveSingleProduct(event, idx): string{
-    return this.Product;
+  retrieveSingleProduct(idx): Product{
+    return this.ProductList[idx];
   }
 
   retrieveProducts():  Array<string>{
@@ -25,4 +26,10 @@ export class DataService {
 
   }
 
+  updateProduct(index, product){
+    
+    this.ProductList.splice(index, 1)
+    return this.ProductList.push(product);
+    
+  }
 }

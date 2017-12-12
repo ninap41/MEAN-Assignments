@@ -17,17 +17,9 @@ const routes: Routes = [
   { path: 'createproduct', 
   pathMatch: 'full',
   component: CreateproductComponent },
-  { path: 'product/editproduct', 
+  { path: 'editproduct/:index', 
   pathMatch: 'full',
   component: EditproductComponent },
-  { path: 'product/editproduct/:id', 
-  pathMatch: 'full',
-  component: EditproductComponent },
-  // { path: 'products', 
-  // component: AppComponent, 
-  // children: [
-  //   { path: 'new', component: AppComponent}
-  // ]
 ];
 
 

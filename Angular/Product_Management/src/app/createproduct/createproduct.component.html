@@ -27,9 +27,9 @@
   <div *ngIf='price.errors'>
     <p *ngIf='!valid && price.errors.required'>Price is required</p>
 </div>  
-Image Upload:
+Image URL:
     <input 
-    type="file" 
+    type="text" 
     name="imageURL" 
     required 
     [(ngModel)]="newProduct.imageURL"

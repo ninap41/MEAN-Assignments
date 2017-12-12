@@ -3,6 +3,6 @@ export class Product {
         public id: number = Math.floor(Math.random() * 9999) + 1,
         public productname: string = '',
         public price: number = 0,
-        public imgURL = null
+        public imgURL : string =''
     ) {}
 }

@@ -87,8 +87,7 @@ module.exports = {
                         let logged_user= req.session.currUser 
                         // res.json(user._id); 
                         console.log("~~~~~~~~~~~~~~~~~~~");  
-                        console.log(logged_user);   
-                        console.log("~~~~~~~~~~~~~~~~~~~");
+                        console.lomjg("~~~~~~~~~~~~~~~~~~~");
                         res.redirect('/success');
                     }
                     else {

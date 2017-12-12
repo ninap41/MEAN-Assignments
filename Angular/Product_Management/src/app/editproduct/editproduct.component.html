@@ -1,4 +1,42 @@
-<fieldset>
-  <legend>Edit Product</legend>
-  <span></span>
+<style>
+  p {color: red}
+  </style><fieldset>
+  <legend>Create New Product</legend>
+  <form (submit)="onSubmit()" #productForm="ngForm">
+    Product Name: 
+    <input 
+    type="text" 
+    name="productname" 
+    required 
+    minlength="4"
+    [(ngModel)]="newProduct.productname"
+    #productname='ngModel'
+ >   <BR><BR>
+  <div *ngIf='productname.errors'>
+    <p *ngIf='!valid && productname.errors.required && productname.dirty'>Product name is required</p>
+    <p *ngIf='!valid && productname.errors.minlength && productname.dirty'>Product name must be at least 4 characters</p>
+  </div>
+    Product Price:
+    <input 
+    type="number" 
+    name="price" 
+    required 
+    [(ngModel)]="newProduct.price"
+    #price='ngModel'
+ >  <BR><BR>
+  <div *ngIf='price.errors'>
+    <p *ngIf='!valid && price.errors.required'>Price is required</p>
+</div>  
+Image URL:
+    <input 
+    type="text" 
+    name="imageURL" 
+    required 
+    [(ngModel)]="newProduct.imageURL"
+    #imageURL='ngModel'
+    /> <BR>
+      <button *ngIf='!productForm.valid' type="submit" value="Create">Please Fill Out Valid Forms!</button>
+      <button *ngIf='productForm.valid' type="submit" value="Create">Create</button>
+    </form>
 </fieldset >
+
