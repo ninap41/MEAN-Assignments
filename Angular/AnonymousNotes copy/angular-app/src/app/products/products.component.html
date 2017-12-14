@@ -1,0 +1,21 @@
+<div style="text-align:center">
+<fieldset>
+  <legend>Notes</legend>
+
+  <span *ngFor="let product of ProductList">
+    
+    <p> id: <b>{{product._id}}</b><BR>
+
+         Description:  - "{{product.description}}"<BR>
+
+          <button  (click)="deleteProduct(product)">delete</button>
+    </p>
+
+  </span>
+
+  <span *ngIf="ProductList.length === 0">
+    *There are no notes :(
+  </span>
+</fieldset >
+
+</div>

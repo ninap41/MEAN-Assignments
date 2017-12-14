@@ -1,0 +1,35 @@
+
+
+    
+<!-- <BR>{{ loggedList | json}}<BR> -->
+
+
+  <BR>
+    <span style="color:green"*ngFor="let user of loggedList">
+      {{user.firstName}}
+      {{user.id}}<BR> 
+      </span>
+
+<fieldset>
+  <legend>Recently Added Foods</legend>
+  <span *ngFor="let product of ProductList; let idx = index">
+    <p> id: <b>{{product._id}}</b><BR>
+        Posted By Name:  -{{product.postedBy}}<BR>
+        Name: <b>{{product.productname}}</b><BR>
+        Description:   "{{product.description}}"<BR>
+        Price:  $ {{product.price}}.00<BR>
+        MadeBy (UserId):  {{product.user_}}<BR>
+    <span *ngIf="loggedList[0].id == product.user_">
+    <button  [routerLink]="['/products', product._id, idx]">Update</button>
+  </span>
+    <button *ngIf="loggedList[0].id == product.user_" (click)="deleteProduct(product)">Delete</button>
+    <button *ngIf="loggedList[0].id != product.user_" (click)="contact(product)">Contact User</button>
+    
+    </p>
+  </span>
+  <span *ngIf="ProductList.length === 0">
+    *There are no products :(
+  </span>
+</fieldset >
+
+

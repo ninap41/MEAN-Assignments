@@ -1,0 +1,72 @@
+<style>
+  p {color: red}
+  </style>
+   <BR>{{ ErrorMessage | json}}<BR>
+    <h4>LOGGED JSON</h4>
+  <BR>{{ loggedList | json}}
+
+    <h4>UPDATED PRODUCT JSON</h4>
+    {{  retrievedProduct[0] | json}}
+    <hr>
+    <!-- {{ updatedProduct | json }} -->
+{{ ProductList | json }}
+<span style="color:red" *ngIf="updatedProduct">
+{{ updatedProduct }}
+</span>
+    <BR>
+      <span style="color:green" *ngFor="let user of loggedList">
+        {{user.firstName}}
+        {{user.id}}
+        <BR> 
+        </span>
+  <fieldset>
+  <legend>Update FOODS</legend>
+  <form (submit)="onSubmit()" #productForm="ngForm">
+    Product Name: 
+    <input 
+    type="text" 
+    name="productname" 
+    required 
+    minlength="4"
+    [(ngModel)]="updatedProduct.productname"
+    #productname='ngModel'
+ >   <BR><BR>
+  <div *ngIf='productname.errors'>
+    <p *ngIf='!valid && productname.errors.required && productname.dirty'>Product name is required</p>
+    <p *ngIf='!valid && productname.errors.minlength && productname.dirty'>Product name must be at least 4 characters</p>
+  </div>
+
+  Description: 
+  <input 
+  type="text" 
+  name="description" 
+  required 
+  trim = true
+  minlength="8"
+  [(ngModel)]="updatedProduct.description"
+  #description='ngModel'
+>   <BR><BR>
+<div *ngIf='description.errors'>
+  <p *ngIf='!valid && description.errors.required && description.dirty'>Product description is required</p>
+  <p *ngIf='!valid && description.errors.minlength && description.dirty'>Product description must be at least 4 characters</p>
+</div>
+
+    Product Price:
+    <input 
+    type="number" 
+    name="price" 
+    required 
+    [(ngModel)]="updatedProduct.price"
+    #price='ngModel'
+ >  <BR><BR>
+  <div *ngIf='price.errors'>
+    <p *ngIf='!valid && price.errors.required'>Price is required</p>
+</div>  
+      <button [disabled]="!productForm.valid" type="submit" value="Create">Update</button>
+    </form>
+</fieldset >
+
+<BR><BR><BR>
+  <h4>VALID FORM JSON</h4>
+{{ productForm.valid | json }}
+<BR><BR>
