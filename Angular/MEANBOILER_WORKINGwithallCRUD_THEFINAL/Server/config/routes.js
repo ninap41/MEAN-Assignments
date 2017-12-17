@@ -25,6 +25,7 @@ module.exports = function(app) {
      app.get('/api/allUsers', function (req, res){
         users.find(req, res);
     });
+    
 
     // PRODUCT STUFF    ///////////////////
     app.get('/api/allProducts', function (req, res){
@@ -32,23 +33,39 @@ module.exports = function(app) {
     });
  
     app.get('/api/randomProduct', function (req, res){
-        products.find(req, res);
+        products.random(req, res);
     });
 
-   
-    app.get('/api/singleProduct', function (req, res){
-        products.findsingleProduct(req, res);
+/////////////////////////////////////////////////////////////
+    app.post('/api/retrieveSingleProduct/', function (req, res){
+        products.getSingleProduct(req, res);
     });
+    
+/////////////////////////////////////////////////////////////
+    app.get('/api/findproduct/:id', function (req, res){ //product ID
+        products.findproduct(req, res);
+    });
+
     app.post('/api/addProduct/:id', function (req, res){        //id should be users id
         products.create(req, res);
     });
+
 
 
     app.post('/api/deleteProduct', function (req, res){
         products.delete(req, res);
     });
 
-    app.get('/api/updateProduct', function (req, res){   //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON
+    app.get('/api/findproduct/updatedProduct/${id}', function(req, res) {
+        products.findOne(req, res);
+    })
+
+    app.post('/api/updateProduct1', function (req, res){   //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON
+        products.update1(req, res); //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON
+    }); //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON
+
+   
+    app.post('/api/updateProduct', function (req, res){   //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON
         products.update(req, res); //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON
     }); //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON
 
@@ -61,7 +78,6 @@ module.exports = function(app) {
 
     app.post('/api/login', function(req,res){
         users.login(req, res)
-
 })
 
 app.get('/api/logout', function(req,res){
@@ -71,8 +87,6 @@ app.get('/api/logout', function(req,res){
 app.get('/delete/:id', function(req,res){    //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON
     users.delete(req, res)   //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON
 });   //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON //WORK ON WORK ON WORK ON WORK ON
-
-
 
 
 

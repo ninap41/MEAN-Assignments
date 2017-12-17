@@ -14,7 +14,7 @@ export class DataService {
 Product: Product;
 ProductList: any[] = [];
 loggedList= []
-
+retrievedProduct=[]
 currentUser: User;
 
 
@@ -96,8 +96,20 @@ createProduct(product: Product){
   .toPromise();
 }
 
+retrievedSingleProduct(id){
+  return this._http.post('/api/retrieveSingleProduct/', id)
+  .map(response => response.json())
+  .toPromise();
+}
 
-updateProduct(product){
+// updateProduct1(product){ //OBJECT
+//   console.log(product + "!!!! MADE IT TO SERVICE PRODUCT")
+//   return this._http.post('/api/updateProduct1', product)
+//   .map(response => response.json())
+//   .toPromise();
+// }
+updateProduct(product){ //OBJECT
+  console.log(product)
   return this._http.post('/api/updateProduct', product)
   .map(response => response.json())
   .toPromise();
@@ -114,11 +126,18 @@ findRandomProduct(){
   .toPromise();
 }
 
+// findProduct(id){
+//   console.log(id)
+//   return this._http.get(`/api/findproduct/updatedProduct/${id}`)
+//   .map(response => response.json)
+//   .toPromise();
+// }
 
-findsingProduct(){
-  return this._http.get('/api/singleProduct')
-  .map(response => response.json())
-  .toPromise();
-}
+// findOneListing(id){
+//   return this._http.get(`/api/currentUser/listing/${id}`)
+//   .map(response => response.json())
+//   .toPromise();
+// }
+// 
 
 }

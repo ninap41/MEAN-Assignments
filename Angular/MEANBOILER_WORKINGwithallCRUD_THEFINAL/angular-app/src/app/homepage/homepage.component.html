@@ -1,0 +1,194 @@
+
+
+
+<!--_____________________Errors_______________________________-->
+
+    <BR>{{ ErrorMessage | json}}<BR>
+      <BR>
+        <!-- <span style="color:green" *ngFor="let user of loggedList">
+          {{user.firstName}}
+          {{user.id}}<BR> 
+          </span> -->
+<!--_____________________PRODUCTOFTHEDAY _______________________________-->
+
+
+<!-- <fieldset  *ngIf="RandomProduct">
+    <legend>Food of The Day!</legend>
+  <h5 style="text-align: left">Product: {{ RandomProduct.productname}}</h5>
+  <h5 style="text-align: left">Posted By: {{ RandomProduct.postedBy }}</h5>
+  <h5 style="text-align: left">Description:{{ RandomProduct.description }} </h5>
+  <h5 style="text-align: left">Price: ${{ RandomProduct.price }}</h5>
+</fieldset > -->
+
+
+<!--_____________________Landing after LOGIN/REG_______________________________-->
+<!-- <span *ngIf="loggedList.length != 0">
+<fieldset>
+  <legend>Home</legend>
+<h5>Thank you for visiting us. this is wonderful marketplace for you to explore. This is the home page!</h5>
+</fieldset >
+</span> -->
+
+<h4>SESSION JSON</h4>
+{{ loggedList | json}}
+
+
+
+<!--______________________LOGIN AND REG_______________________________-->
+
+<span *ngIf="loggedList.length === 0">
+<fieldset>
+<legend>Register</legend>
+<div style="text-align:center">
+  <h1>
+    <!-- {{ valid | json }} -->
+  </h1>
+  <!-- <h5 *ngIf="valid" style = "color:green">Thanks for Registering {{ LOGNAME | uppercase}}! Have a Great Day!</h5>  THERES NO SESSION SO THIS IS NECCESARY -->
+  <h5 *ngIf="!valid && message == 'Something Happened. Please Try Again' " style = "color:red"> </h5>  
+</div>
+<div style="text-align:center">
+
+<form (submit)="register()" #userForm="ngForm"> 
+ First Name:<input 
+    type="text" 
+    name="firstName" 
+    required 
+    minlength="2" 
+    maxlength="24"
+    [(ngModel)]="user.firstName"
+    #firstName='ngModel'
+ />          
+ <div *ngIf='firstName.errors'>
+    <p *ngIf='!valid && firstName.errors.required && firstName.dirty'>first name is required</p>
+    <p *ngIf='!valid && firstName.errors.minlength && firstName.dirty'>first name must be at least 2 characters</p>
+    <p *ngIf='!valid && firstName.errors.maxlength && firstName.dirty'>first name must not exceed 24 characters</p>
+    
+</div>
+             
+                <BR>
+  Last Name:<input 
+    type="text" 
+    name="lastName" 
+    required 
+    minlength="2" 
+    maxlength="24"
+    [(ngModel)]="user.lastName"
+    #lastName='ngModel'
+  
+  />      
+  <div *ngIf='lastName.errors'>
+      <p *ngIf='!valid && lastName.errors.required && lastName.dirty'>Last name is required</p>
+      <p *ngIf='!valid && lastName.errors.minlength && lastName.dirty'>last name must be longer than 2 characters</p>
+      <p *ngIf='!valid && lastName.errors.maxlength && lastName.dirty'>last name must not exceed 24 characters</p>
+      
+  </div>  
+  <br>
+  Email:<input 
+  type="text" 
+  name="email" 
+  required 
+  minlength="4" 
+  
+  maxlength="24"
+  [(ngModel)]="user.email"
+  #email="ngModel"  
+    />   
+    <div *ngIf='email.errors'>
+        <p *ngIf='!valid && email.errors.required  && email.dirty'>Email is required</p>
+        <p *ngIf='!valid && email.errors.minlength && email.dirty'>email must have at least 7 chars and @</p>
+        
+    </div>
+    <br>
+  Password: <input 
+    type="password" 
+    name="password"
+    required 
+
+    pattern="^([a-zA-Z0-9@*#]{8,15})$"
+    [(ngModel)]="user.password"
+    #password="ngModel"
+  /> <br><br>
+
+  <div *ngIf='password.errors'>
+      <p *ngIf='!valid && password.errors.required  && password.dirty'>Password is required</p>
+      <p *ngIf='!valid && password.errors.pattern && password.dirty'>Password must be  between 8-14 characters</p>
+  </div>
+
+Confirm Password: <input 
+  name="confirmpassword"
+  type="password"
+  pattern="^([a-zA-Z0-9@*#]{8,15})$"  
+  required
+  [(ngModel)]="user.confirmpassword"
+  #confirmpassword = "ngModel"
+/> <br><br>
+
+<div *ngIf='confirmpassword.errors'>
+    <p *ngIf='!valid && confirmpassword.errors.required  && confirmpassword.dirty'>Password is required</p>
+    <p *ngIf='user.confirmpassword !== user.password && confirmpassword.dirty'>Passwords must match</p>
+</div>
+
+
+    <button [disabled]="!userForm.valid || user.confirmpassword !== user.password"  style="border:none;" *ngIf='!userForm.valid'>Make sure your fields are valid!</button>
+  <button *ngIf='userForm.valid && user.confirmpassword === user.password' type="submit" value="Register">Register</button>
+</form>
+</div>
+
+</fieldset >
+
+
+<fieldset >
+    <legend>Login</legend>
+    <form #logForm="ngForm" (submit)="login()">
+    Email: <input type="email"
+    name="email"
+    required
+    minlength="4" 
+    [(ngModel)]="user.email"
+    #email="ngModel"  
+    > <br><br>
+    <div *ngIf='email.errors'>
+        <p *ngIf='!valid && email.errors.required  && email.dirty'>Email is required</p>        
+        <p *ngIf='!valid && email.errors.minlength && email.dirty'>email must have at least 7 chars and @</p>
+  </div>
+
+    Password: <input type="password"
+    name="password" 
+    required
+    [(ngModel)]="user.password"
+    #password = "ngModel"
+    ><br><br>
+    <div *ngIf='password.errors'>
+        <p *ngIf='!valid && password.errors.required  && password.dirty'>Password is required</p>
+    </div>
+    <button [disabled]="!logForm.valid"  style="border:none;" *ngIf='!logForm.valid'>Make sure your fields are valid!</button>
+    <button *ngIf='logForm.valid' type="submit" value="Login">Login</button>
+</form>
+</fieldset >
+
+</span>
+
+
+<!--______________________ALL USERS___________________-->
+
+<!-- <span *ngIf="loggedList.length != 0">
+<fieldset >
+  <legend>Marketers</legend>
+<h5 *ngFor="let user of userList"> -->
+  <!-- <div style="text-align:left"class="align"> -->
+    <!-- <span *ngFor="let products of ProductList"> Products loop -->
+      <!-- <span>Name: {{user.firstName}} {{user.lastName}}</span><BR>
+      <span>Email: {{user.email}}</span><BR>
+      <span *ngIf="!user.TheirProducts">Products: They have posted no listings</span><BR>
+      <span *ngIf="user.TheirProducts">Products: {{user.TheirProducts}}</span> -->
+    <!-- </span>  Products loop -->
+  <!-- </div>
+  </h5>
+</fieldset>
+</span> -->
+<span *ngIf="loggedList.length > 0">
+
+<app-products></app-products>
+<app-createproduct></app-createproduct>
+
+</span>
