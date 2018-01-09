@@ -1,0 +1,21 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1>{{ title }}</h1>
+   
+
+<span *ngIf="loggedList.length != 0">
+    <h1>Welcome, {{ loggedList[0].firstName }}!</h1>
+    <a style="font-size:2.5rem; text-decoration:none;" [routerLink]="['home']">Home  |</a> 
+          <a style="font-size:2.5rem; text-decoration:none;" [routerLink]="['createproduct']">Create Question | </a> 
+          <a style="font-size:2.5rem; text-decoration:none;" [routerLink]="['yourproducts']">Your Questions | </a>   
+</span>
+
+<span *ngIf="loggedList.length != 0 ">
+          <a style="font-size:2.5rem; text-decoration:none;" (click)="LogoutData(0)" >Logout |</a>
+</span>
+<span *ngIf="loggedList.length > 0">
+      
+</span>
+
+
+<router-outlet></router-outlet>

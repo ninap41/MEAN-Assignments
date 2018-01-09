@@ -1,0 +1,118 @@
+
+
+<style>
+  p {color: red}
+  </style>
+  
+
+<!-- <span *ngIf="newScore"> {{ newScore | json }}</span> -->
+
+<!-----Random Question ---->
+<fieldset>
+  <span *ngIf="RandomProduct && RandomProduct2 && RandomProduct3">
+    <legend>Answer these Questions....carefully</legend>
+  <form (submit)="onSubmit()" #scoreForm="ngForm">
+  <h5 style="text-align: left">Question1: {{ RandomProduct.questionname}}</h5>
+  <select required [(ngModel)]="newScore.question1" name="question1">
+    <option value="Wrong" >{{ RandomProduct.fakeanswer1}} </option>
+    <option  value="Wrong" >   {{ RandomProduct.fakeanswer2}}</option>
+    <option  value="Right">   {{ RandomProduct.answer}}</option>
+</select>
+
+
+
+   
+  <h5 style="text-align: left">Question2: {{ RandomProduct2.questionname}}</h5>
+<select required [(ngModel)]="newScore.question2" name="question2">
+   <option  value="Wrong" >{{ RandomProduct2.fakeanswer1}}</option> 
+    <option value="Wrong" >   {{ RandomProduct2.fakeanswer2}}</option>
+    <option value="Right">   {{ RandomProduct2.answer}}</option>
+
+  </select>
+  
+
+ 
+  <h5 style="text-align: left">Question3: {{ RandomProduct3.questionname}}</h5>
+
+  <select required [(ngModel)] ="newScore.question3" name="question3" >
+  <option  value="Wrong" >{{ RandomProduct3.fakeanswer1}} </option>
+  <option  value="Wrong" >   {{ RandomProduct3.fakeanswer2}}</option>
+  <option value="Right">   {{ RandomProduct3.answer}}</option>
+</select>
+
+<BR>
+
+<button [disabled]="!scoreForm.valid" type="submit" value="Create">Submit Answers</button><br>
+<span style="color:red" *ngIf="!scoreForm.valid && scoreForm.touched"> Please make sure your questions are filled out!</span>
+</form>
+</span>
+</fieldset>
+
+
+
+<!-- 
+<fieldset>
+    <legend><h1>Dojo Survey</h1></legend>
+
+      <form action="/process" method="post">
+     <label for="name">Name: </label>
+  <input type="text" name ="name"><br><br>
+     <label for="location"> Dojo Location:</label>
+      <select name="location" class= "line_em" > <br><br>
+          <option value=""></option name='chosen'>
+          <option value="Chicago">Chicago</option name='chosen'>
+          <option value="Dallas">Dallas</option name='chosen'>
+          <option value="Seattle">Seattle</option name='chosen'>
+          <option value="Mars">Mars</option name='chosen'>   
+      </select> <br><br>
+      <label for="language"> Favorite Language:</label>
+      <select name ="language" class= "line_em"><br><br>
+           <option value=""></option name='chosen'>
+          <option value="Python">Python</option name='chosen'>
+          <option value="Javascript">Javascript</option name='chosen'>
+      <option value="C#">C#</option name='chosen'>
+
+          <option value="Html/CSS">Html/Css</option name='chosen'>
+          <option value="Java">Java</option name='chosen'>
+      </select><br><br>
+      <label for="comment">  Comment (optional)</label>
+     <textarea  type="text" name="comment"></textarea><br>
+      <br>
+      <input type='submit' value='submit'>
+      </form>
+  </fieldset> -->
+    
+ <!-- <BR>{{ loggedList | json}}<BR>
+
+
+  <BR>
+    <span style="color:green"*ngFor="let user of loggedList">
+      {{user.firstName}}
+      {{user.id}}<BR> 
+      </span> -->
+
+
+  <!-- <legend>Recently Added Questions</legend>
+  <span *ngFor="let product of ProductList; let idx = index"> -->
+    <!-- <p> id: <b>{{product._id}}</b><BR>
+        Posted By Name:  {{product.postedBy}}<BR>
+        Name: <b>{{product.productname}}</b><BR>
+        Description:   "{{product.description}}"<BR>
+        Price:  $ {{product.price}}.00<BR>
+        MadeBy (UserId):  {{product.user_}}<BR>
+    <span *ngIf="loggedList[0].id == product.user_">
+    <button  [routerLink]="['/products', product._id, idx]">Update</button>
+     //works
+  </span>
+    <button *ngIf="loggedList[0].id == product.user_" (click)="deleteProduct(product)">Delete</button>
+    <button *ngIf="loggedList[0].id != product.user_" (click)="contact(product, idx)">Contact User</button>
+    <button  [routerLink]="['/viewproduct', product._id]">View Product</button>
+    
+    </p> -->
+  <!-- </span>
+  <span *ngIf="ProductList.length === 0">
+    *There are no questions :(
+  </span>
+</fieldset > -->
+
+

@@ -4,7 +4,7 @@ module.exports = function(app) {
 
 
     app.get('/', function(req, res,err) {
-            res.render('index', {user: req.session.currUser, err: err });
+            res.render('index', {err: err });
     })
   
 

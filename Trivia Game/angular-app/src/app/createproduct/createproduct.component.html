@@ -1,0 +1,72 @@
+<!-- <span *ngIf="newScore"> {{ newScore | json }}</span> -->
+
+<style>
+  p {color: red}
+  </style>
+  
+  <BR>
+    <span  style="color:green" *ngFor="let user of loggedList">
+      {{user.firstName}}
+      {{user.id}}
+    </span> 
+  <fieldset>
+  <legend>Add Question</legend>
+  <form (submit)="onSubmit()" #productForm="ngForm">
+   Question: 
+    <input 
+    type="text" 
+    name="questionname" 
+    required 
+    minlength="15"
+    [(ngModel)]="newProduct.questionname"
+    #questionname='ngModel'
+ >   <BR><BR>
+  <div *ngIf='questionname.errors'>
+    <p *ngIf='!valid && questionname.errors.required && questionname.dirty'>questionname is required</p>
+  </div>
+
+  FakeAnswer3: 
+  <input 
+  type="text" 
+  name="fakeanswer1" 
+  required 
+  trim = true
+  [(ngModel)]="newProduct.fakeanswer1"
+  #fakeanswer1='ngModel'
+>   <BR><BR>
+<div *ngIf='fakeanswer1.errors'>
+  <p *ngIf='!valid && fakeanswer1.errors.required && fakeanswer1.dirty'> fakeanswer1 is required</p>
+</div>
+
+fakeAnswer2: 
+<input 
+  type="text" 
+  name="fakeanswer2" 
+  required 
+  trim = true
+  [(ngModel)]="newProduct.fakeanswer2"
+#fakeanswer2='ngModel'
+>   <BR><BR>
+<div *ngIf='fakeanswer2.errors'>
+<p *ngIf='!valid && fakeanswer2.errors.required && fakeanswer2.dirty'>fakeanswer2 is required</p>
+</div>
+
+Answer: 
+<input 
+  type="text" 
+  name="answer" 
+  required 
+  trim = true
+  [(ngModel)]="newProduct.answer"
+  #answer='ngModel'
+>   <BR><BR>
+<div *ngIf='answer.errors'>
+<p *ngIf='!valid && answer.errors.required && answer.dirty'> answer is required</p>
+</div>
+    <button [disabled]="!productForm.valid" type="submit" value="Create">Create</button>
+</form>
+</fieldset >
+<!-- 
+{{ productForm.valid | json }}
+<h4>PRODUCTLIST JSON</h4>
+{{ ProductList | json}} -->

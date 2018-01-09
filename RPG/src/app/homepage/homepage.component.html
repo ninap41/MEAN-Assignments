@@ -1,0 +1,70 @@
+<style>
+  i{
+    color:rgb(195, 255, 195);
+   
+  }
+</style>
+<span *ngIf="gameStart == true">
+<fieldset>
+    <i style="color:grey">&#10524; </i>
+    
+    <a style="font-size:1.79rem; text-decoration:none;" [routerLink]="['']">  NEW GAME  </a> <i style="color:white">&#9472; </i>
+    <a style="font-size:1.79rem; text-decoration:none;" [routerLink]="['stats']"> STATS </a><i style="color:white">&#9472; </i>
+    <a style="font-size:1.79rem; text-decoration:none;" [routerLink]="['bag']"> BAG </a> 
+    <i style="color:grey">&#10523; </i>
+ </fieldset>
+</span>
+
+<fieldset>
+
+<span *ngIf="gameStart == true">
+
+      
+            <legend>Stats</legend>
+            <div style="text-align:left; margin: 5rem;">
+            <span *ngIf="name != ''">  <i>Name:</i> {{Player.name}}</span><BR>
+            <i>Health:</i> {{Player.health}}<BR>
+           <i>Race: </i>{{Player.race}}<BR>
+            <i>LVL: </i>{{Player.lvl}}<BR>
+            <i>Strength:</i>{{Player.strength}}<BR>
+            <i>Speed: </i>{{Player.speed}}<BR>
+            <i>Weapon:</i> {{Player.Weapon}}<BR>
+            <i>Gold: </i>{{Player.gold}}<BR>
+            <i>Bag:</i> <BR><span *ngFor="let item of Player.Bag">- {{item}}<BR></span><BR><br>
+            </div>
+            <a style="font-size:2.5rem; text-decoration:none;" [routerLink]="['firstWorld']"> <button >Begin Adventure!</button></a> 
+
+          
+          
+        </span>
+  <span *ngIf="gameStart != true">
+  <!-- <span><i>Welcome to underDark </i></span> -->
+  <BR><BR>
+
+    <form (submit)="GameStart()" #playerForm="ngForm">
+      Choose Race: <select [(ngModel)]="Player.race" name="race">What's your race?
+        <option value="Human">Human</option>
+        <option value="Elf">Elf</option>
+        <option value="Dwarf">Dwarf</option>
+        <option value="Wizard">Wizard</option>
+        <option value="Orc">Orc</option>
+      </select><BR>
+      Name: <input [(ngModel)]="Player.name" name='name' type='text'><BR>
+      <button type="submit" value="Play!">Play!</button>
+    </form>
+
+
+  
+</span>
+
+
+<span *ngIf="gamestart == true">
+
+
+    <button (click)="GameStart()">Interact</button>
+    
+
+
+</span>
+
+</fieldset>

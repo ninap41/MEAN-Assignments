@@ -1,0 +1,83 @@
+<style>
+.start{background-color: white;}
+
+table{ margin-left: 30rem;text-align:center}
+
+</style>
+
+
+
+<!-- <div style="background-color:green; width: 40rem; color:white; "> Congratulations! {{loggedList[0].name}}you got...</div> -->
+
+<fieldset>
+<legend>Questions!</legend>
+
+  <button class="start" [routerLink]="['/products']">Start Question Game!</button>
+
+  
+</fieldset>
+
+
+
+        <fieldset>
+          <legend>Scores</legend>
+              <span  *ngIf="!scoreList.length > 0">There are no scores!</span>
+        <!-- <h5 *ngFor="let score of scoreList; let idx = index">  -->
+        
+            <table style="text-align: center" value="Squish" *ngIf="scoreList.length > 0">
+                <tr>
+                        <th>Player</th>
+                        <th>Score</th>
+                        <th>Percentage</th>
+                      
+                </tr>
+
+                    <tr *ngFor="let score of scoreList; let idx = index" >    
+
+              
+                        <td *ngIf="score.finalscore==3">{{score.user}}</td> 
+                        <td *ngIf="score.finalscore==3">{{score.finalscore}}/3</td>  
+                        <td *ngIf="score.finalscore==3"> {{score.percentage}} %</td>    
+                      
+                    </tr>   
+                    <tr *ngFor="let score of scoreList; let idx = index" >    
+                    
+                                  
+                        <td *ngIf="score.finalscore==2">{{score.user}}</td> 
+                        <td *ngIf="score.finalscore==2">{{score.finalscore}}/3</td>  
+                        <td *ngIf="score.finalscore==2"> {{score.percentage}} %</td>    
+                                          
+                    
+              
+                    <tr *ngFor="let score of scoreList; let idx = index" >   
+                          
+                                        
+                        <td *ngIf="score.finalscore==1">{{score.user}}</td> 
+                        <td *ngIf="score.finalscore==1">{{score.finalscore}}/3</td>  
+                        <td *ngIf="score.finalscore==1"> {{score.percentage}} %</td>    
+                                                
+                    </tr>  
+              </table>
+
+    
+        
+  
+        </fieldset>
+     
+
+
+        <span *ngIf="loggedList.length != 0">
+            <fieldset >
+              <legend>Players</legend>
+              <span *ngIf="!userList.length == 1">There are no other players! Only you! Get to playing!</span><BR><BR>
+              
+            <h5 *ngFor="let user of userList; let idx = index">
+                
+                <!-- {{userList | json}} -->
+                 <span>Name: {{user.firstName}} </span><BR>
+                  <span>Email: {{user.email}}</span><BR>
+        
+            
+              </h5>
+            </fieldset>
+            </span>

@@ -1,0 +1,94 @@
+<!-- <BR>{{ loggedList | json}}<BR> -->
+  
+  <!-- {{ProductList | json}} -->
+    <!-- <BR>
+      <span style="color:green"*ngFor="let user of loggedList">
+        {{user.firstName}}
+        {{user.id}}<BR> 
+        </span> -->
+  
+  <fieldset>
+    <legend>Questions</legend>
+    <span *ngFor="let product of ProductList; let idx = index">
+      <span *ngIf ="product.user_ == loggedList[0].id" >
+          <!-- <span *ngIf ="!product.user_"> You have no products</span> -->
+              
+      <p> id: {{product._id}}<BR>
+          Question {{product.questionname}}<BR>
+          MadeBy (UserId):  {{product.user_}}<BR>
+      </p>
+
+   
+    <!-- <button  [routerLink]="['/products', product._id, idx]">Update</button> -->
+
+      <!-- //////////////////// the list way ////////////////////////////// -->
+   
+      
+     <!--////////////////////////////// the list way ////////////////////////////// -->
+
+           
+
+      
+      <button *ngIf="loggedList[0].id == product.user_" (click)="deleteProduct(product)">Delete</button>
+
+
+
+      <!-- <fieldset>
+          <legend>Update FOODS</legend>
+          <form (submit)="editProduct(updatedProduct)" #productForm="ngForm">
+            Product Name: 
+            <input 
+            type="text" 
+            name="productname" 
+            required 
+            minlength="4"
+            [(ngModel)]="updatedProduct.productname"
+            #productname='ngModel'
+         >   <BR><BR>
+          <div *ngIf='productname.errors'>
+            <p *ngIf='!valid && productname.errors.required && productname.dirty'>Product name is required</p>
+            <p *ngIf='!valid && productname.errors.minlength && productname.dirty'>Product name must be at least 4 characters</p>
+          </div>
+        
+          Description: 
+          <input 
+          type="text" 
+          name="description" 
+          required 
+          trim = true
+          minlength="8"
+          [(ngModel)]="updatedProduct.description" 
+          #description='ngModel'
+        >   <BR><BR>
+        <div *ngIf='description.errors'>
+          <p *ngIf='!valid && description.errors.required && description.dirty'>Product description is required</p>
+          <p *ngIf='!valid && description.errors.minlength && description.dirty'>Product description must be at least 4 characters</p>
+        </div>
+        
+            Product Price:
+            <input 
+            type="number" 
+            name="price" 
+            required 
+            [(ngModel)]="updatedProduct.price"
+            #price='ngModel'
+         >  <BR><BR>
+          <div *ngIf='price.errors'>
+            <p *ngIf='!valid && price.errors.required'>Price is required</p>
+        </div>  
+              <button [disabled]="!productForm.valid" type="submit" value="Create">Update</button>
+            </form>
+        </fieldset > -->
+
+
+
+
+
+
+
+
+
+
+     </span>
+     </span>
+     

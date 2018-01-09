@@ -1,0 +1,12 @@
+fieldset{
+    width: 60%;
+    margin-left: 20%
+}
+legend{
+    font-size: 3rem;
+}
+input{
+    height: 3rem;
+}
+p {color:red;}
+form{width:100%;}

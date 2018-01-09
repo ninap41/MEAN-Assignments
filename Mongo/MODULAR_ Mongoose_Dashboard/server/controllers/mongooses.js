@@ -25,7 +25,6 @@ module.exports = {
         mongoose.name = req.body.name;
         mongoose.age = req.body.age;
         mongoose.personality = req.body.personality;
-    
         mongoose.save(function(err) {
           
           if(err) {
@@ -54,8 +53,6 @@ module.exports = {
 
     destroy: function(req,res) {
         Mongoose.remove({_id:req.params.id}, function(err){
-            
-            
             res.redirect('/');
            });
     },
